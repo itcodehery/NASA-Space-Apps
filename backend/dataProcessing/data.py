@@ -36,6 +36,62 @@ N2O_2022 = n2o_dict["2022"]
 N2O_2023 = n2o_dict["2023"]
 
 
+states = {
+    "CO": "Colorado",
+    "TX": "Texas",
+    "KY": "Kentucky",
+    "IN": "Indiana",
+    "OK": "Oklahoma",
+    "NY": "New York",
+    "IL": "Illinois",
+    "MN": "Minnesota",
+    "AL": "Alabama",
+    "WI": "Wisconsin",
+    "AR": "Arkansas",
+    "MO": "Missouri",
+    "NC": "North Carolina",
+    "MI": "Michigan",
+    "WY": "Wyoming",
+    "FL": "Florida",
+    "PR": "Puerto Rico",
+    "SD": "South Dakota",
+    "MD": "Maryland",
+    "IA": "Iowa",
+    "LA": "Louisiana",
+    "OH": "Ohio",
+    "TN": "Tennessee",
+    "GA": "Georgia",
+    "VA": "Virginia",
+    "CA": "California",
+    "NE": "Nebraska",
+    "WA": "Washington",
+    "WV": "West Virginia",
+    "KS": "Kansas",
+    "ND": "North Dakota",
+    "PA": "Pennsylvania",
+    "MS": "Mississippi",
+    "OR": "Oregon",
+    "ID": "Idaho",
+    "AK": "Alaska",
+    "NM": "New Mexico",
+    "NH": "New Hampshire",
+    "NJ": "New Jersey",
+    "AZ": "Arizona",
+    "NV": "Nevada",
+    "SC": "South Carolina",
+    "MT": "Montana",
+    "UT": "Utah",
+    "CT": "Connecticut",
+    "MA": "Massachusetts",
+    "HI": "Hawaii",
+    "RI": "Rhode Island",
+    "ME": "Maine",
+    "DC": "District of Columbia",
+    "DE": "Delaware",
+    "GU": "Guam",
+    "VI": "U.S. Virgin Islands",
+    "VT": "Vermont",
+}
 
 
 def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
@@ -49,6 +105,7 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
         "county_name",
         "zip_code",
         "subparts",
+        "parent_companies"
     ]
 
     # 1. Normalize column names first
@@ -69,7 +126,7 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
     df = df.fillna("")  # replace remaining NaN with empty string
 
     # 5. Try converting columns to numeric where possible
-    #use try except to remove the errors
+    # use try except to remove the errors
     for col in df.columns:
         df[col] = pd.to_numeric(df[col], errors="ignore")
 
@@ -78,6 +135,7 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
         df[col] = df[col].str.strip()
 
     return df
+
 
 # print(DF2019)
 
@@ -100,36 +158,31 @@ N2O_2022_processed = data_processing_function(N2O_2022)
 N2O_2023_processed = data_processing_function(N2O_2023)
 
 ch4_df = {
-
-    2019:CH4_2019_processed,
-    2020:CH4_2020_processed,
-    2021:CH4_2021_processed,
-    2022:CH4_2022_processed,
-    2023:CH4_2023_processed,
+    2019: CH4_2019_processed,
+    2020: CH4_2020_processed,
+    2021: CH4_2021_processed,
+    2022: CH4_2022_processed,
+    2023: CH4_2023_processed,
 }
 
 co2_df = {
-
-    2019:CO2_2019_processed,
-    2020:CO2_2020_processed,
-    2021:CO2_2021_processed,
-    2022:CO2_2022_processed,
-    2023:CO2_2023_processed,
+    2019: CO2_2019_processed,
+    2020: CO2_2020_processed,
+    2021: CO2_2021_processed,
+    2022: CO2_2022_processed,
+    2023: CO2_2023_processed,
 }
 
 n2o_df = {
-
-    2019:N2O_2019_processed,
-    2020:N2O_2020_processed,
-    2021:N2O_2021_processed,
-    2022:N2O_2022_processed,
-    2023:N2O_2023_processed,
+    2019: N2O_2019_processed,
+    2020: N2O_2020_processed,
+    2021: N2O_2021_processed,
+    2022: N2O_2022_processed,
+    2023: N2O_2023_processed,
 }
 
-print(n2o_df[2019])
-
-
-# for sheet_name, df in _dict.items():
-#     print(sheet_name)
-#     print(df.head())
-#     print("\n\n")
+ml = {
+    "CH4": ch4_df,
+    "CO2": co2_df,
+    "N2O": n2o_df,
+}

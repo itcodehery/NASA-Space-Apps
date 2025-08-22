@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Query, FastAPI, HTTPException
 import pandas as pd
 import sys, os
-
 sys.path.append(os.path.dirname(__file__))  # add backend folder to path
 from dataProcessing.data import ch4_df, co2_df, n2o_df  # df should be a dict: {2019: DF2019_processed, ...}
 
