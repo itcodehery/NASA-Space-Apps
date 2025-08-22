@@ -9,7 +9,14 @@ file_path = os.path.join(BASE_DIR, "Data", "flight.xls")
 
 sheet_dict = pd.read_excel(file_path, sheet_name=None)
 
-for sheet_name, df in sheet_dict.items():
+
+file_path2 = os.path.join(BASE_DIR, "Data", "co2.xls")
+
+sheet_dict2 = pd.read_excel(file_path2, sheet_name=None)
+
+
+
+for sheet_name, df in sheet_dict2.items():
     print(sheet_name)
     print(df.head())
     print("\n\n")
