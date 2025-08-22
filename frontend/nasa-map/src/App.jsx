@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard";
 function App() {
   const [filters, setFilters] = useState({ CO2: true, CH4: false, CO: false });
   const [year, setYear] = useState(2020);
+  const [selectedState, setSelectedState] = useState(null);
   const [currentView, setCurrentView] = useState("map"); // 'map' or 'dashboard'
 
   return (
@@ -14,12 +15,14 @@ function App() {
       <AppBar currentView={currentView} setCurrentView={setCurrentView} />
       {currentView === "map" ? (
         <div className="relative flex-1 flex flex-col items-center justify-center">
-          <Map filters={filters} year={year} />
+          <Map filters={filters} year={year} selectedState={selectedState} />
           <FilterCard
             filters={filters}
             setFilters={setFilters}
             year={year}
             setYear={setYear}
+            selectedState={selectedState}
+            setSelectedState={setSelectedState}
           />
         </div>
       ) : (

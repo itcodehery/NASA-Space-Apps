@@ -76,7 +76,7 @@ export default function Dashboard() {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
           <div className="bg-gray-800 border border-gray-700 p-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-gray-400 text-sm font-semibold">
@@ -116,6 +116,18 @@ export default function Dashboard() {
             <p className="text-3xl font-bold">
               {Math.round(
                 cityData.reduce((sum, city) => sum + city.CH4, 0) /
+                  cityData.length
+              )}{" "}
+              ppb
+            </p>
+          </div>
+          <div className="bg-gray-800 border border-gray-700 p-6">
+            <h3 className="text-gray-400 text-sm font-semibold mb-2">
+              AVG N₂O LEVEL
+            </h3>
+            <p className="text-3xl font-bold">
+              {Math.round(
+                cityData.reduce((sum, city) => sum + city.N2O, 0) /
                   cityData.length
               )}{" "}
               ppb
@@ -187,15 +199,17 @@ export default function Dashboard() {
 
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-400">CO</span>
-                    <span className="text-sm font-semibold">{city.CO} ppm</span>
+                    <span className="text-sm text-gray-400">N₂O</span>
+                    <span className="text-sm font-semibold">
+                      {city.N2O} ppb
+                    </span>
                   </div>
                   <div className="w-full bg-gray-700 h-2">
                     <div
                       className="h-2 transition-all duration-300"
                       style={{
-                        width: `${Math.min((city.CO / 50) * 100, 100)}%`,
-                        backgroundColor: getGasColor("CO"),
+                        width: `${Math.min((city.N2O / 400) * 100, 100)}%`,
+                        backgroundColor: getGasColor("N2O"),
                       }}
                     />
                   </div>

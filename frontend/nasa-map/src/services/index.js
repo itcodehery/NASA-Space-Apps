@@ -71,10 +71,10 @@ export async function getGasDataForYear(year, filters) {
     );
   }
   if (filters.N2O) {
-      promises.push(
-        getN2OData(year).then((data) => ({ type: "N2O", data, color: "#6b7280" }))
-      );
-    }
+    promises.push(
+      getN2OData(year).then((data) => ({ type: "N2O", data, color: "#6b7280" }))
+    );
+  }
 
   const results = await Promise.all(promises);
   return results.filter((result) => result && result.data);

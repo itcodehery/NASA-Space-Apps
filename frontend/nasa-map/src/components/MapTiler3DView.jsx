@@ -5,13 +5,13 @@ import "@maptiler/sdk/dist/maptiler-sdk.css";
 import { stateGHGData } from "../data/dummyStateGHG";
 
 const MAPTILER_KEY = "get_your_own_D6rA4zTHduk6KOKTXzGB"; // Replace with your own key
-const center = [ -99, 31 ]; // [lng, lat]
+const center = [-99, 31]; // [lng, lat]
 
 const gasColors = {
-    CO2: "#666666",
-    CH4: "#999999",
-    N2O: "#cccccc"
-  };
+  CO2: "#666666",
+  CH4: "#999999",
+  N2O: "#cccccc",
+};
 
 export default function MapTiler3DView({ filters }) {
   // For each active gas, render a layer of circles
@@ -28,9 +28,9 @@ export default function MapTiler3DView({ filters }) {
         maptilerAccessToken={MAPTILER_KEY}
       >
         {/* Render a layer for each active gas using MapTiler Markers */}
-        {Object.keys(filters).map(gas =>
+        {Object.keys(filters).map((gas) =>
           filters[gas]
-            ? stateGHGData.map(state => (
+            ? stateGHGData.map((state) => (
                 <Map.Marker
                   key={gas + state.name}
                   lngLat={[state.center[1], state.center[0]]}

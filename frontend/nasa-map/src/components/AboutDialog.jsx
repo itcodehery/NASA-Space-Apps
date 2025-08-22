@@ -49,8 +49,8 @@ export default function AboutDialog({ isOpen, onClose }) {
             <FiBarChart2 className="w-4 h-4 mt-1 flex-shrink-0" />
             <span>
               Using interactive mapping technology, users can explore
-              environmental data from 1970 to 2020, focusing on CO₂, CH₄, and N₂O
-              emissions.
+              environmental data from 1970 to 2020, focusing on CO₂, CH₄, and
+              N₂O emissions.
             </span>
           </p>
 

@@ -1,6 +1,13 @@
-import { FiFilter, FiCalendar } from "react-icons/fi";
+import { FiFilter, FiCalendar, FiMapPin } from "react-icons/fi";
 
-export default function FilterCard({ filters, setFilters, year, setYear }) {
+export default function FilterCard({
+  filters,
+  setFilters,
+  year,
+  setYear,
+  selectedState,
+  setSelectedState,
+}) {
   const gases = [
     {
       key: "CO2",
@@ -22,6 +29,60 @@ export default function FilterCard({ filters, setFilters, year, setYear }) {
     },
   ];
 
+  const states = [
+    { key: "ALL", label: "All States" },
+    { key: "AL", label: "Alabama" },
+    { key: "AK", label: "Alaska" },
+    { key: "AZ", label: "Arizona" },
+    { key: "AR", label: "Arkansas" },
+    { key: "CA", label: "California" },
+    { key: "CO", label: "Colorado" },
+    { key: "CT", label: "Connecticut" },
+    { key: "DE", label: "Delaware" },
+    { key: "FL", label: "Florida" },
+    { key: "GA", label: "Georgia" },
+    { key: "HI", label: "Hawaii" },
+    { key: "ID", label: "Idaho" },
+    { key: "IL", label: "Illinois" },
+    { key: "IN", label: "Indiana" },
+    { key: "IA", label: "Iowa" },
+    { key: "KS", label: "Kansas" },
+    { key: "KY", label: "Kentucky" },
+    { key: "LA", label: "Louisiana" },
+    { key: "ME", label: "Maine" },
+    { key: "MD", label: "Maryland" },
+    { key: "MA", label: "Massachusetts" },
+    { key: "MI", label: "Michigan" },
+    { key: "MN", label: "Minnesota" },
+    { key: "MS", label: "Mississippi" },
+    { key: "MO", label: "Missouri" },
+    { key: "MT", label: "Montana" },
+    { key: "NE", label: "Nebraska" },
+    { key: "NV", label: "Nevada" },
+    { key: "NH", label: "New Hampshire" },
+    { key: "NJ", label: "New Jersey" },
+    { key: "NM", label: "New Mexico" },
+    { key: "NY", label: "New York" },
+    { key: "NC", label: "North Carolina" },
+    { key: "ND", label: "North Dakota" },
+    { key: "OH", label: "Ohio" },
+    { key: "OK", label: "Oklahoma" },
+    { key: "OR", label: "Oregon" },
+    { key: "PA", label: "Pennsylvania" },
+    { key: "RI", label: "Rhode Island" },
+    { key: "SC", label: "South Carolina" },
+    { key: "SD", label: "South Dakota" },
+    { key: "TN", label: "Tennessee" },
+    { key: "TX", label: "Texas" },
+    { key: "UT", label: "Utah" },
+    { key: "VT", label: "Vermont" },
+    { key: "VA", label: "Virginia" },
+    { key: "WA", label: "Washington" },
+    { key: "WV", label: "West Virginia" },
+    { key: "WI", label: "Wisconsin" },
+    { key: "WY", label: "Wyoming" },
+  ];
+
   // Find the currently selected gas
   const selectedGas = Object.keys(filters).find((key) => filters[key]);
 
@@ -36,7 +97,7 @@ export default function FilterCard({ filters, setFilters, year, setYear }) {
 
   return (
     <div
-      className="fixed left-1/2 bottom-8 w-[60vw] max-w-4xl bg-gray-800/95 backdrop-blur-sm text-white shadow-2xl flex items-center justify-center z-[1200] px-6 py-4 border border-gray-700/50"
+      className="fixed left-1/2 bottom-8 w-auto min-w-[60vw] max-w-none bg-gray-800/95 backdrop-blur-sm text-white shadow-2xl flex items-center justify-center z-[1200] px-6 py-4 border border-gray-700/50"
       style={{ transform: "translateX(-50%)" }}
     >
       <div className="flex items-center justify-between w-full gap-6">
@@ -97,6 +158,30 @@ export default function FilterCard({ filters, setFilters, year, setYear }) {
               {year}
             </span>
           </div>
+        </div>
+
+        {/* Divider */}
+        <div className="h-8 w-px bg-gray-600" />
+
+        {/* State Dropdown */}
+        <div className="flex items-center gap-4">
+          <span className="text-sm font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-2">
+            <FiMapPin className="w-4 h-4" />
+            State
+          </span>
+          <select
+            value={selectedState || "ALL"}
+            onChange={(e) =>
+              setSelectedState(e.target.value === "ALL" ? null : e.target.value)
+            }
+            className="bg-gray-900/50 border border-gray-600 text-white text-sm px-3 py-2 rounded focus:outline-none focus:border-blue-500"
+          >
+            {states.map((state) => (
+              <option key={state.key} value={state.key} className="bg-gray-800">
+                {state.label}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
     </div>

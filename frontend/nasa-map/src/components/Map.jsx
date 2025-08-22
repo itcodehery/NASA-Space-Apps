@@ -12,7 +12,7 @@ import "./map.css";
 import { fetchMethanePlumes, fetchStateEmissions } from "../services/api";
 import { getGasDataForYear } from "../services/index";
 
-export default function Map({ filters, year }) {
+export default function Map({ filters, year, selectedState }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const center = { lng: -98.5, lat: 39.8 };
@@ -35,9 +35,25 @@ export default function Map({ filters, year }) {
   useEffect(() => {
     let isMounted = true;
 
-    // Fetch gas-specific data based on active filters
+    // Fetch gas-specific data based on active filters and selected state
     getGasDataForYear(year, filters).then((data) => {
-      if (isMounted) setGasData(data);
+      if (isMounted) {
+        // Filter data by selected state if provided
+        if (selectedState && selectedState !== "ALL") {
+          const filteredData = data.map((gasItem) => ({
+            ...gasItem,
+            data:
+              gasItem.data?.filter(
+                (facility) =>
+                  facility.state_code === selectedState ||
+                  facility.state === selectedState
+              ) || [],
+          }));
+          setGasData(filteredData);
+        } else {
+          setGasData(data);
+        }
+      }
     });
 
     fetchStateEmissions().then((data) => {
@@ -47,7 +63,7 @@ export default function Map({ filters, year }) {
     return () => {
       isMounted = false;
     };
-  }, [year, filters]); // refetch if year or filters change
+  }, [year, filters, selectedState]); // refetch if year, filters, or selectedState change
 
   useEffect(() => {
     if (!gasData || gasData.length === 0) return;
@@ -69,22 +85,22 @@ export default function Map({ filters, year }) {
       // Add layers for each gas type
       gasData.forEach(({ type, data, color }) => {
         if (!data || data.length === 0) return;
-        
+
         // Convert facility data to GeoJSON for this gas type
         const geoJsonData = {
           type: "FeatureCollection",
-          features: data.map(facility => ({
+          features: data.map((facility) => ({
             type: "Feature",
             geometry: {
               type: "Point",
-              coordinates: [facility.longitude, facility.latitude]
+              coordinates: [facility.longitude, facility.latitude],
             },
             properties: {
               ...facility,
               gas_type: type,
-              color: color
-            }
-          }))
+              color: color,
+            },
+          })),
         };
 
         // Create unique source name for this gas type
@@ -104,14 +120,16 @@ export default function Map({ filters, year }) {
               "interpolate",
               ["linear"],
               ["get", "ghg_quantity_(metric_tons_co2e)"],
-              0, 3,
-              1000000, 20
+              0,
+              3,
+              1000000,
+              20,
             ],
             "circle-color": color,
             "circle-opacity": 0.7,
             "circle-stroke-width": 1,
-            "circle-stroke-color": "#ffffff"
-          }
+            "circle-stroke-color": "#ffffff",
+          },
         });
 
         // Add facility labels for this gas type
@@ -125,25 +143,30 @@ export default function Map({ filters, year }) {
               ["get", "city_name"],
               "\n",
               ["get", "ghg_quantity_(metric_tons_co2e)"],
-              " tons (", type, ")"
+              " tons (",
+              type,
+              ")",
             ],
             "text-size": 10,
             "text-anchor": "top",
             "text-allow-overlap": false,
-            "text-offset": [0, 0.5]
+            "text-offset": [0, 0.5],
           },
           paint: {
             "text-color": "#000000",
             "text-halo-color": "#ffffff",
-            "text-halo-width": 2
-          }
+            "text-halo-width": 2,
+          },
         });
       });
     });
   }, [gasData, center.lng, center.lat, zoom]);
 
   const activeFilters = Object.keys(filters).filter((gas) => filters[gas]);
-  const totalFacilities = gasData.reduce((sum, gasItem) => sum + (gasItem.data?.length || 0), 0);
+  const totalFacilities = gasData.reduce(
+    (sum, gasItem) => sum + (gasItem.data?.length || 0),
+    0
+  );
 
   // Dummy state emission data for visualization
   const stateData = [
@@ -334,24 +357,31 @@ export default function Map({ filters, year }) {
           </svg>
         </div>
       )}
-
       <div className="absolute top-4 left-4 bg-gray-900/95 border border-gray-700 p-4 z-10">
         <h3 className="text-white font-semibold mb-2 flex items-center gap-2">
           <FiLayers className="w-4 h-4" />
           Emissions Map
         </h3>
 
-        <div className="mb-3">
-          <button
-            onClick={() =>
-              setMapMode(mapMode === "coordinates" ? "states" : "coordinates")
-            }
-            className="flex items-center gap-2 px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-sm text-white transition-colors"
-          >
-            <FiGlobe className="w-4 h-4" />
-            {mapMode === "coordinates" ? "Show States" : "Show Coordinates"}
-          </button>
+        <div className="text-sm text-gray-300 mb-2 flex items-center gap-1">
+          <FiCalendar className="w-4 h-4" />
+          Year: {year}
         </div>
+        <div className="text-sm text-gray-300 mb-2 flex items-center gap-1">
+          <FiFilter className="w-4 h-4" />
+          Facilities: {totalFacilities}
+        </div>
+        <div className="text-sm text-gray-300 flex items-center gap-1">
+          <FiMapPin className="w-4 h-4" />
+          Selected City: {selectedState || "None"}
+        </div>
+      </div>
+
+      <div className="absolute top-4 left-4 bg-gray-900/95 border border-gray-700 p-4 z-10">
+        <h3 className="text-white font-semibold mb-2 flex items-center gap-2">
+          <FiLayers className="w-4 h-4" />
+          Emissions Map
+        </h3>
 
         <div className="text-sm text-gray-300 mb-2 flex items-center gap-1">
           <FiCalendar className="w-4 h-4" />
