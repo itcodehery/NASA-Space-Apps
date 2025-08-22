@@ -36,7 +36,62 @@ N2O_2022 = n2o_dict["2022"]
 N2O_2023 = n2o_dict["2023"]
 
 
-
+states = {
+  "CO": "Colorado",
+  "TX": "Texas",
+  "KY": "Kentucky",
+  "IN": "Indiana",
+  "OK": "Oklahoma",
+  "NY": "New York",
+  "IL": "Illinois",
+  "MN": "Minnesota",
+  "AL": "Alabama",
+  "WI": "Wisconsin",
+  "AR": "Arkansas",
+  "MO": "Missouri",
+  "NC": "North Carolina",
+  "MI": "Michigan",
+  "WY": "Wyoming",
+  "FL": "Florida",
+  "PR": "Puerto Rico",
+  "SD": "South Dakota",
+  "MD": "Maryland",
+  "IA": "Iowa",
+  "LA": "Louisiana",
+  "OH": "Ohio",
+  "TN": "Tennessee",
+  "GA": "Georgia",
+  "VA": "Virginia",
+  "CA": "California",
+  "NE": "Nebraska",
+  "WA": "Washington",
+  "WV": "West Virginia",
+  "KS": "Kansas",
+  "ND": "North Dakota",
+  "PA": "Pennsylvania",
+  "MS": "Mississippi",
+  "OR": "Oregon",
+  "ID": "Idaho",
+  "AK": "Alaska",
+  "NM": "New Mexico",
+  "NH": "New Hampshire",
+  "NJ": "New Jersey",
+  "AZ": "Arizona",
+  "NV": "Nevada",
+  "SC": "South Carolina",
+  "MT": "Montana",
+  "UT": "Utah",
+  "CT": "Connecticut",
+  "MA": "Massachusetts",
+  "HI": "Hawaii",
+  "RI": "Rhode Island",
+  "ME": "Maine",
+  "DC": "District of Columbia",
+  "DE": "Delaware",
+  "GU": "Guam",
+  "VI": "U.S. Virgin Islands",
+  "VT": "Vermont"
+}
 
 def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
     df = data.copy()
@@ -126,7 +181,7 @@ n2o_df = {
     2023:N2O_2023_processed,
 }
 
-print(n2o_df[2019])
+# print(ch4_dict["2023"]['STATE'].unique())
 
 
 # for sheet_name, df in _dict.items():
