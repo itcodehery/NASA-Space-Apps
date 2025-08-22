@@ -105,7 +105,7 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
         "county_name",
         "zip_code",
         "subparts",
-        "parent_companies"
+        "parent_companies",
     ]
 
     # 1. Normalize column names first
@@ -135,6 +135,25 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
         df[col] = df[col].str.strip()
 
     return df
+u
+def merge_all_gases(data_dict: dict) -> dict[int, pd.DataFrame]:
+    merged_by_year = {}
+
+    # Loop over years (take from the first gas key)
+    years = next(iter(data_dict.values())).keys()
+
+    for year in years:
+        frames = []
+        # Loop over all gases
+        for gas, yearly_data in data_dict.items():
+            df = yearly_data[year].copy()
+            df["gas"] = gas
+            frames.append(df)
+
+        # Merge all gases for that year
+        merged_by_year[year] = pd.concat(frames, ignore_index=True)
+
+    return merged_by_year
 
 
 # print(DF2019)
@@ -181,8 +200,11 @@ n2o_df = {
     2023: N2O_2023_processed,
 }
 
+
 ml = {
     "CH4": ch4_df,
     "CO2": co2_df,
     "N2O": n2o_df,
 }
+
+total_info = merge_all_gases(ml)
