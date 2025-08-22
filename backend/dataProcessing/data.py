@@ -79,7 +79,6 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-
 # print(DF2019)
 
 CH4_2019_processed = data_processing_function(CH4_2019)
