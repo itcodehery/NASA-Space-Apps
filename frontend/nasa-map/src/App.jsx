@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import MapView from "./components/MapView";
+import { useState } from "react";
 import FilterCard from "./components/FilterCard";
 import AppBar from "./components/AppBar";
 import Map from "./components/Map";
@@ -8,15 +7,20 @@ import Dashboard from "./components/Dashboard";
 function App() {
   const [filters, setFilters] = useState({ CO2: true, CH4: false, CO: false });
   const [year, setYear] = useState(2020);
-  const [currentView, setCurrentView] = useState('map'); // 'map' or 'dashboard'
+  const [currentView, setCurrentView] = useState("map"); // 'map' or 'dashboard'
 
   return (
     <div className="App h-screen w-screen flex flex-col">
       <AppBar currentView={currentView} setCurrentView={setCurrentView} />
-      {currentView === 'map' ? (
+      {currentView === "map" ? (
         <div className="relative flex-1 flex flex-col items-center justify-center">
           <Map filters={filters} year={year} />
-          <FilterCard filters={filters} setFilters={setFilters} year={year} setYear={setYear} />
+          <FilterCard
+            filters={filters}
+            setFilters={setFilters}
+            year={year}
+            setYear={setYear}
+          />
         </div>
       ) : (
         <Dashboard />

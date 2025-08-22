@@ -1,4 +1,14 @@
-__pycache__/
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+_pycache_/
 .env
 Scripts/
-venv
+Lib
+Include
+pyvenv.cfg
+
+lib
+bin
+include 
+
+pyvenv.cfg

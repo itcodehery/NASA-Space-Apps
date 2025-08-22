@@ -2,6 +2,8 @@ import axios from "axios";
 
 // Create an Axios instance with default configuration
 const api = axios.create({
+  baseURL: "http://127.0.0.1:8000", // Replace with your API base URL
+  // You can add other default settings here
   baseURL: "https://api.example.com", // Replace with your API base URL
   // You can add other default settings here
 });
@@ -90,78 +92,6 @@ export async function fetchMethanePlumes() {
               "Plume ID": "CH4_PlumeComplex-001",
               "Max Plume Concentration (ppm m)": 4000,
               "UTC Time Observed": "2022-08-15T14:08:23Z",
-              CO2: 15.2,
-              CH4: 8.7,
-              CO: 12.3,
-            },
-          },
-          {
-            type: "Feature",
-            geometry: {
-              type: "Polygon",
-              coordinates: [
-                [
-                  [-98.8, 30.8],
-                  [-98.9, 30.9],
-                  [-99.0, 30.8],
-                  [-98.9, 30.7],
-                  [-98.8, 30.8],
-                ],
-              ],
-            },
-            properties: {
-              "Plume ID": "CO2_PlumeComplex-002",
-              "Max Plume Concentration (ppm m)": 3200,
-              "UTC Time Observed": "2022-08-15T14:15:45Z",
-              CO2: 22.8,
-              CH4: 5.3,
-              CO: 7.1,
-            },
-          },
-          {
-            type: "Feature",
-            geometry: {
-              type: "Polygon",
-              coordinates: [
-                [
-                  [-99.3, 31.2],
-                  [-99.4, 31.3],
-                  [-99.5, 31.2],
-                  [-99.4, 31.1],
-                  [-99.3, 31.2],
-                ],
-              ],
-            },
-            properties: {
-              "Plume ID": "CO_PlumeComplex-003",
-              "Max Plume Concentration (ppm m)": 2800,
-              "UTC Time Observed": "2022-08-15T14:22:12Z",
-              CO2: 8.9,
-              CH4: 11.4,
-              CO: 18.6,
-            },
-          },
-          {
-            type: "Feature",
-            geometry: {
-              type: "Polygon",
-              coordinates: [
-                [
-                  [-98.7, 31.1],
-                  [-98.8, 31.2],
-                  [-98.9, 31.1],
-                  [-98.8, 31.0],
-                  [-98.7, 31.1],
-                ],
-              ],
-            },
-            properties: {
-              "Plume ID": "MultiGas_Plume-004",
-              "Max Plume Concentration (ppm m)": 4500,
-              "UTC Time Observed": "2022-08-15T14:28:30Z",
-              CO2: 31.5,
-              CH4: 25.8,
-              CO: 19.2,
             },
           },
         ],
