@@ -27,10 +27,12 @@ a {
   color: #cccccc;
   text-decoration: inherit;
   font-family: "Space Mono", monospace;
+  transition: all 500ms;
 }
 
 a:hover {
   color: #ffffff;
+  transform: translateY(-4px);
 }
 
 body {
@@ -43,7 +45,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Monoir", sans-serif;
   line-height: 1.1;
 }

@@ -1,8 +1,10 @@
+import { FiFilter, FiCalendar } from 'react-icons/fi';
+
 export default function FilterCard({ filters, setFilters, year, setYear }) {
   const gases = [
-    { key: "CO2", label: "CO2" },
-    { key: "CH4", label: "CH4" },
-    { key: "CO", label: "CO" },
+    { key: "CO2", label: "CO₂", color: "#ef4444", hoverColor: "hover:bg-red-500/20" },
+    { key: "CH4", label: "CH₄", color: "#f59e0b", hoverColor: "hover:bg-amber-500/20" },
+    { key: "CO", label: "CO", color: "#6b7280", hoverColor: "hover:bg-gray-500/20" },
   ];
 
   // Find the currently selected gas
@@ -19,40 +21,65 @@ export default function FilterCard({ filters, setFilters, year, setYear }) {
 
   return (
     <div
-      className="fixed left-1/2 bottom-16 w-[50vw] h-[70px] bg-gray-900 text-white shadow-2xl flex items-center justify-center z-[1200] px-8 border border-gray-700"
+      className="fixed left-1/2 bottom-8 w-[60vw] max-w-4xl bg-gray-800/95 backdrop-blur-sm text-white shadow-2xl flex items-center justify-center z-[1200] px-6 py-4 border border-gray-700/50"
       style={{ transform: "translateX(-50%)" }}
     >
-      <div className="flex items-center justify-center w-full gap-8">
-        <div className="flex items-center gap-4">
-          <span className="text-lg font-semibold">Filters:</span>
-          {gases.map((gas) => (
-            <label
-              key={gas.key}
-              className="flex items-center gap-2 text-base font-medium"
-            >
-              <input
-                type="radio"
-                name="gas"
-                checked={selectedGas === gas.key}
-                onChange={() => handleGasChange(gas.key)}
-                className="accent-gray-400 w-4 h-4"
-              />
-              {gas.label}
-            </label>
-          ))}
+      <div className="flex items-center justify-between w-full gap-6">
+        {/* Gas Filters */}
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-2">
+            <FiFilter className="w-4 h-4" />
+            Gases
+          </span>
+          <div className="flex items-center gap-2">
+            {gases.map((gas) => (
+              <button
+                key={gas.key}
+                onClick={() => handleGasChange(gas.key)}
+                className={`px-4 py-2 text-sm font-medium transition-all duration-200 border ${
+                  selectedGas === gas.key
+                    ? 'bg-gray-700 border-gray-600 text-white shadow-lg'
+                    : `bg-transparent border-gray-600 text-gray-400 ${gas.hoverColor} hover:border-gray-500 hover:text-gray-200`
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <span
+                    className="w-2 h-2"
+                    style={{ backgroundColor: gas.color }}
+                  />
+                  {gas.label}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* Divider */}
+        <div className="h-8 w-px bg-gray-600" />
+
+        {/* Year Slider */}
         <div className="flex items-center gap-4">
-          <span className="text-lg font-semibold">Year:</span>
-          <input
-            type="range"
-            min={2015}
-            max={2020}
-            step={1}
-            value={year}
-            onChange={(e) => setYear(Number(e.target.value))}
-            className="w-64 accent-gray-400"
-          />
-          <span className="text-base font-bold text-white">{year}</span>
+          <span className="text-sm font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-2">
+            <FiCalendar className="w-4 h-4" />
+            Year
+          </span>
+          <div className="flex items-center gap-3 bg-gray-900/50 px-4 py-2">
+            <input
+              type="range"
+              min={2015}
+              max={2020}
+              step={1}
+              value={year}
+              onChange={(e) => setYear(Number(e.target.value))}
+              className="w-32 h-1 bg-gray-600 appearance-none cursor-pointer slider"
+              style={{
+                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((year - 2015) / 5) * 100}%, #4b5563 ${((year - 2015) / 5) * 100}%, #4b5563 100%)`
+              }}
+            />
+            <span className="text-base font-bold text-white bg-gray-700 px-3 py-1 min-w-[3rem] text-center">
+              {year}
+            </span>
+          </div>
         </div>
       </div>
     </div>
