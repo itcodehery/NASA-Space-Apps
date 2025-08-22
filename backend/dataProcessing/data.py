@@ -1,9 +1,10 @@
 import pandas as pd
+import os
 
+BASE_DIR = os.path.dirname(__file__)  # directory where data.py is
 datas = {
-    "methain": "backend/dataProcessing/Data/methain.txt",
+    "methain": os.path.join(BASE_DIR, "Data", "methain.txt"),
 }
-
 
 def convertDataToJson(file_path):
     try:
@@ -13,7 +14,6 @@ def convertDataToJson(file_path):
     except Exception as e:
         print("Error", e)
         return []
-
 
 # a dictionary to hold all tables
 tables = {}
@@ -27,11 +27,20 @@ for dataset_name, file_path in datas.items():
     json = pd.read_json(json_links[0])
 
 
-    # create a DataFrame "table"
-    df = pd.DataFrame(json, columns=["link"])
+    dfs = []
+    for url in json_links:
+        try:
+            print(f"Fetching {url} ...")
+            df = pd.read_json(url)   # fetch JSON from URL
+            dfs.append(df)
+        except Exception as e:
+            print(f"Error fetching {url}: {e}")
 
-    # save this table in our dictionary
-    tables[dataset_name] = df
+    if dfs:
+        tables[dataset_name] = pd.concat(dfs, ignore_index=True)
 
 print("\nTable for methain:")
-print(tables["methain"])
+print(tables.get("methain"))
+
+file_path = f"output_tables/data.csv"
+tables.to_csv(file_path, index=False)
