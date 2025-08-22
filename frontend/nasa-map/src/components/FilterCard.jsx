@@ -15,8 +15,8 @@ export default function FilterCard({ filters, setFilters, year, setYear }) {
       hoverColor: "hover:bg-amber-500/20",
     },
     {
-      key: "CO",
-      label: "CO",
+      key: "N2O",
+      label: "N₂O",
       color: "#6b7280",
       hoverColor: "hover:bg-gray-500/20",
     },

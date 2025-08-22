@@ -10,7 +10,7 @@ const dummyStateData = [
     stateName: "Texas",
     CO2: 85,
     CH4: 45,
-    CO: 25,
+    N2O: 25,
     totalEmissions: 155,
   },
   {
@@ -18,7 +18,7 @@ const dummyStateData = [
     stateName: "California",
     CO2: 70,
     CH4: 35,
-    CO: 20,
+    N2O: 20,
     totalEmissions: 125,
   },
   {
@@ -26,7 +26,7 @@ const dummyStateData = [
     stateName: "New York",
     CO2: 55,
     CH4: 25,
-    CO: 15,
+    N2O: 15,
     totalEmissions: 95,
   },
   {
@@ -34,7 +34,7 @@ const dummyStateData = [
     stateName: "Florida",
     CO2: 60,
     CH4: 30,
-    CO: 18,
+    N2O: 18,
     totalEmissions: 108,
   },
   {
@@ -42,7 +42,7 @@ const dummyStateData = [
     stateName: "Pennsylvania",
     CO2: 75,
     CH4: 40,
-    CO: 22,
+    N2O: 22,
     totalEmissions: 137,
   },
   {
@@ -50,7 +50,7 @@ const dummyStateData = [
     stateName: "Illinois",
     CO2: 65,
     CH4: 35,
-    CO: 20,
+    N2O: 20,
     totalEmissions: 120,
   },
   {
@@ -58,7 +58,7 @@ const dummyStateData = [
     stateName: "Alabama",
     CO2: 50,
     CH4: 25,
-    CO: 15,
+    N2O: 15,
     totalEmissions: 90,
   },
 ];
@@ -77,8 +77,8 @@ const stateCoordinates = {
 // Color mapping for each gas - matching FilterCard colors
 const gasColors = {
   CO2: "#ef4444", // red-500
-  CH4: "#22c55e", // green-500
-  CO: "#3b82f6", // blue-500
+  CH4: "#f59e0b", // amber-500
+  N2O: "#6b7280", // gray-500
 };
 
 export default function StateMap({
@@ -91,8 +91,8 @@ export default function StateMap({
   // Color mapping for each filter - matching FilterCard colors
   const gasColors = {
     CO2: "#ef4444", // red-500
-    CH4: "#22c55e", // green-500
-    CO: "#3b82f6", // blue-500
+    CH4: "#f59e0b", // amber-500
+    N2O: "#6b7280", // gray-500
   };
 
   useEffect(() => {

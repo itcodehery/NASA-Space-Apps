@@ -8,10 +8,10 @@ const MAPTILER_KEY = "get_your_own_D6rA4zTHduk6KOKTXzGB"; // Replace with your o
 const center = [ -99, 31 ]; // [lng, lat]
 
 const gasColors = {
-  CO2: "#666666",
-  CH4: "#999999",
-  CO: "#cccccc"
-};
+    CO2: "#666666",
+    CH4: "#999999",
+    N2O: "#cccccc"
+  };
 
 export default function MapTiler3DView({ filters }) {
   // For each active gas, render a layer of circles

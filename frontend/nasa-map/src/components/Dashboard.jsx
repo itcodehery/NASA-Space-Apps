@@ -34,7 +34,7 @@ export default function Dashboard() {
     const colors = {
       CO2: "#ef4444",
       CH4: "#f59e0b",
-      CO: "#6b7280",
+      N2O: "#6b7280",
     };
     return colors[gasType] || "#6b7280";
   };

@@ -10,6 +10,7 @@ import * as maptilersdk from "@maptiler/sdk";
 import "@maptiler/sdk/dist/maptiler-sdk.css";
 import "./map.css";
 import { fetchMethanePlumes, fetchStateEmissions } from "../services/api";
+import { getGasDataForYear } from "../services/index";
 
 export default function Map({ filters, year }) {
   const mapContainer = useRef(null);
@@ -17,7 +18,7 @@ export default function Map({ filters, year }) {
   const center = { lng: -98.5, lat: 39.8 };
   const zoom = 4;
 
-  const [plumeGeoJson, setPlumeGeoJson] = useState(null);
+  const [gasData, setGasData] = useState([]);
   const [stateEmissions, setStateEmissions] = useState([]);
   const [mapMode, setMapMode] = useState("coordinates"); // 'coordinates' or 'states'
 
@@ -27,16 +28,16 @@ export default function Map({ filters, year }) {
   // Color mapping for each filter - matching FilterCard colors
   const gasColors = {
     CO2: "#ef4444", // red-500
-    CH4: "#ffcc3d", // green-500
-    CO: "#8f8f8f", // blue-500
+    CH4: "#f59e0b", // amber-500
+    N2O: "#8f8f8f", // blue-500
   };
 
   useEffect(() => {
     let isMounted = true;
 
-    // Fetch both coordinate-based and state-based data
-    fetchMethanePlumes().then((data) => {
-      if (isMounted) setPlumeGeoJson(data);
+    // Fetch gas-specific data based on active filters
+    getGasDataForYear(year, filters).then((data) => {
+      if (isMounted) setGasData(data);
     });
 
     fetchStateEmissions().then((data) => {
@@ -46,10 +47,10 @@ export default function Map({ filters, year }) {
     return () => {
       isMounted = false;
     };
-  }, [year]); // refetch if year changes
+  }, [year, filters]); // refetch if year or filters change
 
   useEffect(() => {
-    if (!plumeGeoJson) return;
+    if (!gasData || gasData.length === 0) return;
 
     // Remove previous map instance if it exists
     if (map.current) {
@@ -65,59 +66,84 @@ export default function Map({ filters, year }) {
     });
 
     map.current.on("load", () => {
-      map.current.addSource("methane-plume-source", {
-        type: "geojson",
-        data: plumeGeoJson,
-      });
+      // Add layers for each gas type
+      gasData.forEach(({ type, data, color }) => {
+        if (!data || data.length === 0) return;
+        
+        // Convert facility data to GeoJSON for this gas type
+        const geoJsonData = {
+          type: "FeatureCollection",
+          features: data.map(facility => ({
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [facility.longitude, facility.latitude]
+            },
+            properties: {
+              ...facility,
+              gas_type: type,
+              color: color
+            }
+          }))
+        };
 
-      // Add facility points as circles
-      map.current.addLayer({
-        id: "facility-points",
-        type: "circle",
-        source: "methane-plume-source",
-        paint: {
-          "circle-radius": [
-            "interpolate",
-            ["linear"],
-            ["get", "ghg_quantity_(metric_tons_co2e)"],
-            0, 3,
-            1000000, 20
-          ],
-          "circle-color": "#ef4444",
-          "circle-opacity": 0.7,
-          "circle-stroke-width": 1,
-          "circle-stroke-color": "#ffffff"
-        }
-      });
+        // Create unique source name for this gas type
+        const sourceId = `${type.toLowerCase()}-source`;
+        map.current.addSource(sourceId, {
+          type: "geojson",
+          data: geoJsonData,
+        });
 
-      // Add facility labels
-      map.current.addLayer({
-        id: "facility-labels",
-        type: "symbol",
-        source: "methane-plume-source",
-        layout: {
-          "text-field": [
-            "concat",
-            ["get", "city_name"],
-            "\n",
-            ["get", "ghg_quantity_(metric_tons_co2e)"],
-            " tons"
-          ],
-          "text-size": 10,
-          "text-anchor": "top",
-          "text-allow-overlap": false,
-          "text-offset": [0, 0.5]
-        },
-        paint: {
-          "text-color": "#000000",
-          "text-halo-color": "#ffffff",
-          "text-halo-width": 2
-        }
+        // Add facility points as circles for this gas type
+        map.current.addLayer({
+          id: `${type.toLowerCase()}-points`,
+          type: "circle",
+          source: sourceId,
+          paint: {
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["get", "ghg_quantity_(metric_tons_co2e)"],
+              0, 3,
+              1000000, 20
+            ],
+            "circle-color": color,
+            "circle-opacity": 0.7,
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#ffffff"
+          }
+        });
+
+        // Add facility labels for this gas type
+        map.current.addLayer({
+          id: `${type.toLowerCase()}-labels`,
+          type: "symbol",
+          source: sourceId,
+          layout: {
+            "text-field": [
+              "concat",
+              ["get", "city_name"],
+              "\n",
+              ["get", "ghg_quantity_(metric_tons_co2e)"],
+              " tons (", type, ")"
+            ],
+            "text-size": 10,
+            "text-anchor": "top",
+            "text-allow-overlap": false,
+            "text-offset": [0, 0.5]
+          },
+          paint: {
+            "text-color": "#000000",
+            "text-halo-color": "#ffffff",
+            "text-halo-width": 2
+          }
+        });
       });
     });
-  }, [plumeGeoJson, center.lng, center.lat, zoom]);
+  }, [gasData, center.lng, center.lat, zoom]);
 
   const activeFilters = Object.keys(filters).filter((gas) => filters[gas]);
+  const totalFacilities = gasData.reduce((sum, gasItem) => sum + (gasItem.data?.length || 0), 0);
 
   // Dummy state emission data for visualization
   const stateData = [
@@ -126,7 +152,7 @@ export default function Map({ filters, year }) {
       stateName: "Texas",
       CO2: 85,
       CH4: 45,
-      CO: 25,
+      N2O: 25,
       totalEmissions: 155,
       x: 300,
       y: 400,
@@ -136,7 +162,7 @@ export default function Map({ filters, year }) {
       stateName: "California",
       CO2: 70,
       CH4: 35,
-      CO: 20,
+      N2O: 20,
       totalEmissions: 125,
       x: 100,
       y: 250,
@@ -146,7 +172,7 @@ export default function Map({ filters, year }) {
       stateName: "New York",
       CO2: 55,
       CH4: 25,
-      CO: 15,
+      N2O: 15,
       totalEmissions: 95,
       x: 700,
       y: 180,
@@ -156,7 +182,7 @@ export default function Map({ filters, year }) {
       stateName: "Florida",
       CO2: 60,
       CH4: 30,
-      CO: 18,
+      N2O: 18,
       totalEmissions: 108,
       x: 680,
       y: 420,
@@ -166,7 +192,7 @@ export default function Map({ filters, year }) {
       stateName: "Pennsylvania",
       CO2: 75,
       CH4: 40,
-      CO: 22,
+      N2O: 22,
       totalEmissions: 137,
       x: 650,
       y: 220,
@@ -176,7 +202,7 @@ export default function Map({ filters, year }) {
       stateName: "Illinois",
       CO2: 65,
       CH4: 35,
-      CO: 20,
+      N2O: 20,
       totalEmissions: 120,
       x: 500,
       y: 280,
@@ -186,7 +212,7 @@ export default function Map({ filters, year }) {
       stateName: "Alabama",
       CO2: 50,
       CH4: 25,
-      CO: 15,
+      N2O: 15,
       totalEmissions: 90,
       x: 550,
       y: 380,
@@ -333,7 +359,7 @@ export default function Map({ filters, year }) {
         </div>
         <div className="text-sm text-gray-300 flex items-center gap-1">
           <FiFilter className="w-4 h-4" />
-          Active Gases: {activeFilters.join(", ") || "None"}
+          Facilities: {totalFacilities}
         </div>
       </div>
     </div>
