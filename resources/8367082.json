@@ -1,0 +1,830 @@
+{
+  "access": {
+    "embargo": {
+      "active": false,
+      "reason": null
+    },
+    "files": "public",
+    "record": "public",
+    "status": "open"
+  },
+  "created": "2023-10-28T18:17:32.674153+00:00",
+  "custom_fields": {},
+  "deletion_status": {
+    "is_deleted": false,
+    "status": "P"
+  },
+  "files": {
+    "count": 23,
+    "enabled": true,
+    "entries": {
+      "Express_Extension_Gridded_GHGI_Methane_v2_2012.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:ed78eed56de0d3015b2874e1affbd0ef",
+        "ext": "cdf",
+        "id": "3172073b-c737-4f22-863c-403b034a60a0",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2012.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2012.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2012.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3020298,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2013.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:c051f9c7a87895ef7a65d4bd8fab54fb",
+        "ext": "cdf",
+        "id": "bd7c4646-135b-4b0a-8d85-81443000664d",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2013.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2013.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2013.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3019693,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2014.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:40dc8ea3624d5137bf05ce4ea9b67dda",
+        "ext": "cdf",
+        "id": "92013abf-6e4e-4f8a-8b93-f63aa47586b4",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2014.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2014.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2014.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3021840,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2015.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:e85275aed0de973652a38aa4be896027",
+        "ext": "cdf",
+        "id": "3c2aca8a-8d63-48f2-b33e-0a19f4e39a4a",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2015.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2015.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2015.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3020121,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2016.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:aeee24b59aa7e00c54460afdf10f974b",
+        "ext": "cdf",
+        "id": "2861b731-8446-448e-8da6-722a8a3bdda1",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2016.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2016.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2016.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3013749,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2017.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:3892d7df60607b6ec598866f2fb82b17",
+        "ext": "cdf",
+        "id": "71fc2518-10d1-4dac-83c0-76f349769546",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2017.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2017.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2017.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3017404,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2018.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:5890122f7dada20acffff495794630e6",
+        "ext": "cdf",
+        "id": "a0262ee9-bc1d-4602-8539-f7140e0318c3",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2018.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2018.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2018.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3013741,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2019.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:82b79871e12cffb67e34a393b61802d1",
+        "ext": "cdf",
+        "id": "7fcb5d30-b9fb-473a-bb96-15eae1ad46db",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2019.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2019.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2019.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3013614,
+        "storage_class": "L"
+      },
+      "Express_Extension_Gridded_GHGI_Methane_v2_2020.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:1ab02ef4f05f738c6f57c59da9eb9a10",
+        "ext": "cdf",
+        "id": "4b6c9b62-33cb-4d9c-bdb8-f5c831f21084",
+        "key": "Express_Extension_Gridded_GHGI_Methane_v2_2020.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2020.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Express_Extension_Gridded_GHGI_Methane_v2_2020.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 3013526,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_2012.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:b9586c2f4f8b9362743aee4590026927",
+        "ext": "cdf",
+        "id": "8948338e-db96-4a60-bee7-7084ad4cbf02",
+        "key": "Gridded_GHGI_Methane_v2_2012.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2012.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2012.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 2729657,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_2013.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:5b93f54c582c46c661376eb27eca515e",
+        "ext": "cdf",
+        "id": "aaa1fa63-40c3-4fc4-8e18-791c31cf60a5",
+        "key": "Gridded_GHGI_Methane_v2_2013.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2013.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2013.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 2729453,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_2014.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:b2c8393e89a65472743c478cedeb6e40",
+        "ext": "cdf",
+        "id": "5c1f6afd-80f5-4f75-b866-a6045883b87f",
+        "key": "Gridded_GHGI_Methane_v2_2014.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2014.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2014.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 2731250,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_2015.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:eeeb7d4db30cddcc55afdedbd14b70f1",
+        "ext": "cdf",
+        "id": "29ae5c06-f31c-420b-a4b8-1d09869246b7",
+        "key": "Gridded_GHGI_Methane_v2_2015.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2015.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2015.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 2730441,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_2016.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:9a4753a78e263f8af0f8e0af82fb2ae4",
+        "ext": "cdf",
+        "id": "1b722a80-4963-4dee-ac0e-e4844591bc24",
+        "key": "Gridded_GHGI_Methane_v2_2016.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2016.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2016.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 2724074,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_2017.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:27f0e8b93bc9cdc1eddc5b4c7a283f27",
+        "ext": "cdf",
+        "id": "13c5a930-f051-4a44-9da1-37ea316e21c9",
+        "key": "Gridded_GHGI_Methane_v2_2017.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2017.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2017.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 2728016,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_2018.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:177f49630167884e24259d45ed0261b5",
+        "ext": "cdf",
+        "id": "ba399fa3-6983-4d77-afab-a1a439bff542",
+        "key": "Gridded_GHGI_Methane_v2_2018.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2018.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_2018.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 2724072,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2012.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:0351ac7551b1858d0d1ee768d7662306",
+        "ext": "cdf",
+        "id": "14d0d01d-d3c6-4f82-81de-a03710488bf2",
+        "key": "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2012.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2012.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2012.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 7156636,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2013.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:cf95d2cf83f0e49a43eec857c669f4a1",
+        "ext": "cdf",
+        "id": "2d64cebb-5b85-4b8b-b89e-463f3c39ae04",
+        "key": "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2013.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2013.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2013.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 7182710,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2014.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:e8b7b3b1ea8b79be152bcf89b4ef5597",
+        "ext": "cdf",
+        "id": "f9e8c482-b8fb-4a0a-b3ad-e711d0ce875a",
+        "key": "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2014.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2014.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2014.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 7173502,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2015.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:f1f36c4b4cec4b057f5022aa36962d95",
+        "ext": "cdf",
+        "id": "0cc2d893-7ce6-44d7-af8f-7091f4e1deb0",
+        "key": "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2015.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2015.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2015.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 7132342,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2016.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:f9991ec408f06056396a4a72cc8ac817",
+        "ext": "cdf",
+        "id": "a578b47c-b0d5-45f3-9a56-53d6885347e9",
+        "key": "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2016.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2016.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2016.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 7052165,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2017.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:0d585b93946cf869c4d88d34c27c28ac",
+        "ext": "cdf",
+        "id": "a1c07de3-4998-417f-b994-031da7e0a039",
+        "key": "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2017.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2017.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2017.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 7051991,
+        "storage_class": "L"
+      },
+      "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2018.nc": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:69d0e428f70f26620b35c6d6acb98c96",
+        "ext": "cdf",
+        "id": "d01e6e62-7b33-47d2-9bff-d4e1ddf5452d",
+        "key": "Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2018.nc",
+        "links": {
+          "content": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2018.nc/content",
+          "self": "https://zenodo.org/api/records/8367082/files/Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_2018.nc"
+        },
+        "metadata": null,
+        "mimetype": "application/x-netcdf",
+        "size": 7053937,
+        "storage_class": "L"
+      }
+    },
+    "order": [],
+    "total_bytes": 96054232
+  },
+  "id": "8367082",
+  "is_draft": false,
+  "is_published": true,
+  "links": {
+    "access": "https://zenodo.org/api/records/8367082/access",
+    "access_grants": "https://zenodo.org/api/records/8367082/access/grants",
+    "access_links": "https://zenodo.org/api/records/8367082/access/links",
+    "access_request": "https://zenodo.org/api/records/8367082/access/request",
+    "access_users": "https://zenodo.org/api/records/8367082/access/users",
+    "archive": "https://zenodo.org/api/records/8367082/files-archive",
+    "archive_media": "https://zenodo.org/api/records/8367082/media-files-archive",
+    "communities": "https://zenodo.org/api/records/8367082/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/8367082/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.8367082",
+    "draft": "https://zenodo.org/api/records/8367082/draft",
+    "files": "https://zenodo.org/api/records/8367082/files",
+    "latest": "https://zenodo.org/api/records/8367082/versions/latest",
+    "latest_html": "https://zenodo.org/records/8367082/latest",
+    "media_files": "https://zenodo.org/api/records/8367082/media-files",
+    "parent": "https://zenodo.org/api/records/7672123",
+    "parent_doi": "https://doi.org/10.5281/zenodo.7672123",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.7672123",
+    "parent_html": "https://zenodo.org/records/7672123",
+    "preview_html": "https://zenodo.org/records/8367082?preview=1",
+    "requests": "https://zenodo.org/api/records/8367082/requests",
+    "reserve_doi": "https://zenodo.org/api/records/8367082/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/8367082",
+    "self_doi": "https://doi.org/10.5281/zenodo.8367082",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.8367082",
+    "self_html": "https://zenodo.org/records/8367082",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:8367082/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:8367082/sequence/default",
+    "versions": "https://zenodo.org/api/records/8367082/versions"
+  },
+  "media_files": {
+    "count": 0,
+    "enabled": false,
+    "entries": {},
+    "order": [],
+    "total_bytes": 0
+  },
+  "metadata": {
+    "additional_descriptions": [
+      {
+        "description": "<h3><strong>Data Details:</strong></h3><p>Annual gridded files for both data products (main v2 and the v2 express extension) include annual methane emission fluxes from the following&nbsp;inventory source categories:</p><p>Sources listed by name and category. Source categories are from the IPCC/UNFCCC common reporting format (CRF) tables. Sources with an '*' are also reported with monthly emission scale factors.&nbsp;</p><p><strong>Agriculture</strong></p><ul><li>Enteric Fermentation (3A)</li><li>Manure Management* (3B)</li><li>Rice Cultivation* (3C)</li><li>Field Burning of Agricultural Residues* (3F)</li></ul><p><strong>Natural Gas Systems</strong></p><ul><li>Exploration* (1B2b)</li><li>Production* (1B2b)</li><li>Transmission &amp; Storage (1B2b)</li><li>Processing (1B2b)</li><li>Distribution (1B2b)</li><li>Post-Meter (1B2b) (2022 express extension only)</li></ul><p><strong>Petroleum Systems</strong></p><ul><li>Exploration* (1B2a)</li><li>Production* (1B2a)</li><li>Transport* (1B2a)</li><li>Refining* (1B2a)</li></ul><p><strong>Waste</strong></p><ul><li>Municipal Solid Waste (MSW) Landfills (5A1)</li><li>Industrial Landfills (5A1)</li><li>Domestic Wastewater Treatment &amp; Discharge (5D)</li><li>Industrial Wastewater Treatment &amp; Discharge (5D)</li><li>Composting (5B1)</li></ul><p><strong>Coal Mines</strong></p><ul><li>Underground Coal Mining (1B1a)</li><li>Surface Coal Mining (1B1a)</li><li>Abandoned Underground Coal Mines (1B1a)</li></ul><p><strong>Other</strong></p><ul><li>Stationary combustion* (1A)</li><li>Mobile Combustion (1A)</li><li>Abandoned Oil and Gas Wells (1B2a &amp; 1B2b)</li><li>Petrochemical Production (2B8)</li><li>Ferroalloy Production (2C2)</li></ul><p><strong>Additional Variables:&nbsp;</strong></p><ul><li>'Grid_cell_area' (dimensions: time x latitude x longitude, units: cm2) - this variable is included to help users convert from methane emission flux (molecules CH\u00ad4 cm-2 s-1) to total mass (Mt CH4). This variable includes a time dimension to make it suitable (COARDS-compliant) for atmospheric models.</li></ul><p><strong>Additional Notes:</strong></p><ul><li>Monthly scale factors:<ul><li>For the express extension, we recommend using the relative source-specific monthly scale factors for years 2012-2018. For years after 2018, the year 2018 scale factors should be used for manure management,&nbsp;rice cultivation, and field burning of agricultural residue emissions only. For other sources, monthly variability is too year-specific and should not be extrapolated to the express extension dataset for years after 2018.</li></ul></li><li>The gridded GHGI does not currently include emissions from the Land Use, Land Use Change, and Forestry (LULUCF) category of the national U.S. GHGI. Methane emissions from these sources include but are not limited to emissions from fires and flooded lands.</li><li>Both datasets (main v2 gridded dataset and v2 express extension) were produced using source specific Jupyter Notebooks, available&nbsp;<a href=\"https://github.com/USEPA/GEPA\">on EPA's Github site</a>.</li><li>This repository was original published with 'preprint' versions of each datafile. All datafiles have been updated to 'v1' to accompany publication of the peer-reviewed manuscript. The 'preprint' and 'v1' datafiles are identical in all other aspects.</li></ul><p>----------------------------------------------------</p>",
+        "lang": {
+          "id": "eng",
+          "title": {
+            "en": "English"
+          }
+        },
+        "type": {
+          "id": "technical-info",
+          "title": {
+            "de": "Technische Informationen",
+            "en": "Technical info"
+          }
+        }
+      },
+      {
+        "description": "<h3><strong>Frequently Asked Questions (FAQs):</strong></h3><p>&nbsp;</p><p><strong>Q: Has this dataset been peer-reviewed?</strong></p><p><strong>A: </strong>Yes. This dataset has been peer-reviewed as part of the&nbsp;<a href=\"https://pubs.acs.org/doi/10.1021/acs.est.3c05138\">Maasakkers et al., 2023</a> manuscript.&nbsp;However, the manuscript and gridded GHGI datasets are not part of the same annual expert and public review processes as the U.S. EPA National and State-level Inventories.&nbsp;</p><p>&nbsp;</p><p><strong>Q: How do both datasets (main v2 gridded GHGI and v2 express extension) relate to the U.S. National GHG Inventory (</strong><i><strong>Inventory of U.S. Greenhouse Gas Emissions and Sinks)?</strong></i></p><p><i><strong>A:&nbsp;</strong></i>EPA develops an&nbsp;<a href=\"https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks\">annual report</a>, called the <i>Inventory of U.S. Greenhouse Gas Emissions and Sinks</i> (GHGI), that tracks U.S. greenhouse gas emissions and sinks by source, economic sector, and greenhouse gas going back to 1990 (called here the U.S. GHGI). The U.S. GHGI provides a comprehensive accounting of total greenhouse gas emissions for all human-made sources in the United States, including carbon dioxide removal from the atmosphere by \"sinks\" (e.g., through the uptake of carbon and storage in forests, vegetation, and soils) from management of lands in their current use or as lands are converted to other uses.&nbsp;EPA has prepared the&nbsp;U.S. GHGI&nbsp;since the early 1990s and submits the report annually to the United Nations in accordance with the UN Framework Convention on Climate Change (UNFCCC). The emissions and removals in the U.S. GHGI are calculated using internationally accepted methods provided by the IPCC in the 2006 IPCC Guidelines for National Greenhouse Gas Inventories (2006 IPCC Guidelines) and where appropriate, its supplements and refinements. Data are reported in a common format, in line with the UNFCCC reporting guidelines. The U.S. GHGI is a separate product to&nbsp;the EPA National Emissions Inventory (NEI).</p><p>The gridded GHGI (main v2 dataset) includes annual emission fluxes for 26 individual inventory emission source categories, including those from agriculture, petroleum and natural gas systems, coal mining, and waste. Gridded methane emissions data are generated by allocating national&nbsp;annual U.S. GHGI methane emissions from individual source categories to a 0.1\u00b0 x 0.1\u00b0 grid using a series of spatial and temporal 'proxy' datasets at the state, county, and grid levels. Where possible, proxy data are the same data used to develop the U.S. GHGI so that the gridded emissions can be, as closely as possible, a spatial and temporal representation of the national-level U.S. GHGI.&nbsp;In this product, the sum of annual gridded methane emissions for each source will equal the total anthropogenic methane emissions from each corresponding source as reported in the 2020 U.S. GHGI (except for emissions from Alaska (AK), Hawaii (HI), and U.S. territories, which are not included in the gridded GHGI).</p><p>the express extension of the v2 gridded GHGI was developed as an approximate representation of the spatial patterns of source-specific methane emissions reported in the more recent 2022 U.S. GHGI report (for years 2012-2020). As the national U.S. GHGI is an annual report, some estimates in the U.S. GHGI are recalculated and revised each year by the EPA to incorporate improved methods and/or data. The most common reason for recalculating U.S. GHG emission estimates is to update recent historical data, which are generally the result of changes in data supplied by other U.S. government agencies or organizations, as they continue to make refinements and improvements. These improvements are implemented consistently across the U.S. GHGI's time series, as necessary, (i.e., 1990 to 2020) to ensure that the emissions trend is accurate. To reflect these more recent updates, the v2 express extension was derived by allocating national emissions reported in the 2022 U.S. GHGI (for year 2012 \u2013 2020) using spatial emission patterns previously developed for the v2 main product. This results in the same relative spatial patterns in emissions as v2, but with the sum of national methane emissions from each source equal to those reported in the 2022 U.S. GHGI (excluding emissions from AK, HI, and U.S. territories, which are not included in the gridded GHGI). Users are directed to the 2020 and 2022 EPA U.S. GHGI Reports for more specific information about major methodological differences between the two versions of the national GHG inventory.</p><p>Gridded methane emission products can be used by researchers for a better comparison with the national U.S. GHGI with (regional and local) observations of atmospheric methane.</p><p>&nbsp;</p><p><strong>Q: How does the EPA National U.S. GHGI compare to the EPA GHG Reporting Program?</strong></p><p><strong>A:</strong> \"EPA collects greenhouse gas emissions data from individual facilities and suppliers of certain fossil fuels and industrial gases through its Greenhouse Gas Reporting Program (GHGRP), which is complementary to the U.S. Inventory. The GHGRP applies to direct greenhouse gas emitters, fossil fuel suppliers, industrial gas suppliers, and facilities that inject carbon dioxide (CO2) underground for sequestration or other reasons and requires reporting by over 8,000 sources or suppliers in 41 industrial categories. Annual reporting is at the facility level, except for certain suppliers of fossil fuels and industrial greenhouse gases. In general, the threshold for reporting is 25,000 metric tons or more of CO2 equivalent per year. Facilities in most source categories subject to GHGRP began reporting for the 2010 reporting year while additional types of industrial operations began reporting for reporting year 2011. Methodologies used in EPA's GHGRP are consistent with the <i>2006 IPCC Guidelines</i>. While the GHGRP does not provide full coverage of total annual U.S. greenhouse gas emissions and sinks (e.g., the GHGRP excludes emissions from the agricultural, land use, and forestry sectors), it is an important input to the calculations of national-level emissions in this Inventory. The GHGRP dataset provides not only annual emissions information, but also other annual information such as activity data and emission factors that can improve and refine national emission estimates over time.\" <i>Box ES-1 Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2021.</i></p><p>The gridded GHGI uses facility and location specific information from the GHGRP to spatially allocate methane emissions from select natural gas, petroleum, industrial, and waste sources.&nbsp;</p><p>&nbsp;</p><p><strong>Q: Does the sum of source-specific gridded emissions equal the total national emissions reported in the EPA U.S. GHGI?</strong></p><p><strong>A:&nbsp;</strong>The gridded GHGI includes anthropogenic methane emissions from the contiguous U.S. (CONUS). Total CONUS emissions in the gridded GHGI are consistent with the U.S. GHGI, except for&nbsp;emissions from Alaska, Hawaii, or U.S.&nbsp;Territories, which are not included in the gridded product.&nbsp;Both the main v2 gridded GHGI&nbsp;and the v2 express extension include all anthropogenic methane sources included in the U.S. GHGI, except for methane emissions from LULUCF categories.</p><p>&nbsp;</p><p><strong>Q: Does the gridded GHGI account for all sources of methane (anthropogenic + natural) in the contiguous U.S.?</strong></p><p><strong>A:</strong> No. The gridded GHGI does not include natural methane emission sources. In addition, neither the main v2 gridded GHGI nor the v2 express extension include anthropogenic emissions for the LULUCF categories, which are included in the U.S. GHGI. For these emission sources, users can supplement the gridded data with external global gridded data products.</p><p>&nbsp;</p><p><strong>Q:&nbsp;Should I use the main gridded dataset or express extension?</strong></p><p><strong>A:&nbsp;</strong>For applications that require comparisons to emissions from the 2020 U.S. GHGI Report, we recommend using the main gridded GHGI dataset. These data are the most accurate representation of the geographic distribution of methane emissions from the 2020 U.S. GHGI. However, for modeling analyses or comparisons to data collected in more recent years, or for direct comparisons to the 2022 U.S. GHGI, we recommend using the express extension dataset.</p><p>Regardless of application, users *<strong>should not</strong> <strong>combine emissions data from the main v2 gridded dataset with the v2 express extension</strong>*. The 2020 and 2022 U.S. GHGI Reports are separate inventories of historical annual U.S. methane emissions and therefore using emissions from both the main v2 and v2 express extension would not correspond to total emissions from either U.S. GHGI Report and could result misinterpretations or step changes in the magnitude of emissions between the two gridded datasets.</p><p>For inverse modeling applications that require total methane emissions (anthropogenic + natural sources), users are directed to external global emission databases for sources not included in the gridded GHGI<strong>.</strong></p><p>&nbsp;</p><p><strong>Q: Why was the express extension dataset developed?</strong></p><p><strong>A:</strong> The v2 express extension was developed to provide an estimate of gridded methane emissions that reflect a more recently published U.S. GHGI Report. This \"express extension\" enables comparisons to more recent emission estimates from atmospheric observations. EPA has made several improvements to the U.S. GHGI since the publication of the 2020 Report, which impact methane emission estimates across the (extended) time series. To incorporate some of these recent improvements, this express&nbsp;dataset extends the same gridding methodology from main v2 gridded GHGI dataset (spatial patterns held constant after 2018), but scales total CONUS emissions to those consistent with the 2022 U.S. GHGI.</p><p>&nbsp;</p><p><strong>Q: Which monthly scale factors should I use with the express extension dataset?</strong></p><p><strong>A:</strong> Monthly scale factors were developed for the main v2 gridded GHGI dataset, for sources with strong interannual variability, such as manure management and petroleum and natural gas production. Temporal monthly scale factors were not developed for the express extension dataset. For years 2012-2018, the source-specific monthly scaling factors can be applied to the corresponding source emission fluxes in the express extension. For years after 2018, monthly scaling factors should only be applied to manure management, rice cultivation, and field burning of agricultural residues&nbsp;emissions. Variability in these sources is largely driven by seasonal conditions, where variability in the year 2018 can be used to approximate seasonal variability in later years. In contrast, monthly variability in other emission sources is too year-specific to be extended to the express dataset beyond 2018.&nbsp;</p><p>&nbsp;</p><p><strong>Q: What units are methane emissions reported in?</strong></p><p><strong>A:</strong> The annual files include methane emission fluxes, in units of molecules CH4/cm2/s. To convert annual data from emission fluxes to total annual emissions (Teragrams/year), use the following conversion:</p><p>Methane emissions [Tg per year] = Methane flux [molec. cm^-2 s^-1] * Conversion factor&nbsp;</p><p>Conversion factor = 1/6.022x10^23 [mole per molec.] * 16.04x10^-12 [Tg per mole] * 86400 [s per day] * [days per year] * grid cell area [cm^2]</p><p>The number of days per year depends on whether the given year is a leap year.&nbsp;<br>A map (0.1\u00b0&nbsp;x 0.1\u00b0) of grid cell areas is available in each annual emission&nbsp;file to assist with this conversion (in units of cm2).</p>",
+        "lang": {
+          "id": "eng",
+          "title": {
+            "en": "English"
+          }
+        },
+        "type": {
+          "id": "other",
+          "title": {
+            "de": "Sonstige",
+            "en": "Other"
+          }
+        }
+      }
+    ],
+    "creators": [
+      {
+        "affiliations": [
+          {
+            "name": "U.S. Environmental Protection Agency"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "McDuffie, Erin, E.",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-6845-6077",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "McDuffie, Erin, E.",
+          "type": "personal"
+        },
+        "role": {
+          "id": "contactperson",
+          "title": {
+            "de": "Kontaktperson",
+            "en": "Contact person"
+          }
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "SRON Netherlands Institute for Space Research"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Maasakkers, Joannes, D.",
+          "identifiers": [
+            {
+              "identifier": "0000-0001-8118-0311",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Maasakkers, Joannes, D.",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "Harvard University"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Sulprizio, Melissa, P.",
+          "identifiers": [
+            {
+              "identifier": "0000-0003-4641-5546",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Sulprizio, Melissa, P.",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "SRON Netherlands Institute for Space Research"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Chen",
+          "given_name": "Candice",
+          "name": "Chen, Candice",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "SRON Netherlands Institute for Space Research"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Schultz",
+          "given_name": "Maggie",
+          "name": "Schultz, Maggie",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "SRON Netherlands Institute for Space Research"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Brunelle",
+          "given_name": "Lily",
+          "name": "Brunelle, Lily",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "SRON Netherlands Institute for Space Research"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Thrush",
+          "given_name": "Ryan",
+          "name": "Thrush, Ryan",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "U.S. Environmental Protection Agency"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Steller",
+          "given_name": "John",
+          "identifiers": [
+            {
+              "identifier": "0009-0009-0902-618X",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Steller, John",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "U.S. Environmental Protection Agency"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Sherry",
+          "given_name": "Christopher",
+          "name": "Sherry, Christopher",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "Harvard University"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Jacob, Daniel, J.",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-6373-3100",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Jacob, Daniel, J.",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "Lawrence Berkeley National Laboratory"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Jeong",
+          "given_name": "Seongeun",
+          "identifiers": [
+            {
+              "identifier": "0000-0003-2032-0127",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Jeong, Seongeun",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "U.S. Environmental Protection Agency"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Irving",
+          "given_name": "Bill",
+          "name": "Irving, Bill",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "name": "U.S. Environmental Protection Agency"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Weitz",
+          "given_name": "Melissa",
+          "identifiers": [
+            {
+              "identifier": "0009-0004-3300-8700",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Weitz, Melissa",
+          "type": "personal"
+        }
+      }
+    ],
+    "description": "<h2><strong>About</strong></h2><p>The gridded EPA U.S. anthropogenic methane greenhouse gas inventory&nbsp;(gridded methane GHGI) includes spatially and temporally resolved (gridded) maps of annual anthropogenic methane emissions&nbsp;(0.1\u00b0\u00d70.1\u00b0) for the contiguous United States (CONUS). Total gridded methane emissions for each emission source sector are consistent with national annual U.S. anthropogenic methane emissions reported in the U.S. EPA&nbsp;<a href=\"https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks\"><i>Inventory of U.S. Greenhouse Gas Emissions and Sinks</i></a>&nbsp;(U.S. GHGI). More information is available on the <a href=\"https://www.epa.gov/ghgemissions/gridded-methane-emissions\">U.S. EPA website</a>.&nbsp;</p><p>This repository accompanies the peer-reviewed manuscript&nbsp;<a href=\"https://pubs.acs.org/doi/10.1021/acs.est.3c05138\"><i>Maasakkers,&nbsp;et al., 2023</i></a>. Data in this repository are an update to the gridded GHGI version 1, previously described in&nbsp;<a href=\"https://pubs.acs.org/doi/10.1021/acs.est.6b02878\"><i>Maasakkers,&nbsp;et al., 2016</i></a> and available&nbsp;on the&nbsp;<a href=\"https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions\">U.S. EPA website</a>.&nbsp;</p><h4><strong>This repository contains two data products:</strong></h4><ol><li><strong>Gridded GHGI v2 (main product; 2 file types).&nbsp;</strong>Gridded annual U.S. anthropogenic methane emissions for 2012-2018 for 26 source categories (gridded GHGI). This dataset is developed to be consistent with the national U.S. GHGI published in 2020 (<i>U.S. EPA, Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990 - 2020. U.S. Environmental Protection Agency, 2020, EPA 430-R-22-003,&nbsp;</i><a href=\"https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks-1990-2018\"><i>https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks-1990-2018</i></a>).<br><br>This dataset includes 2 file types:&nbsp;<br>a. Annual methane emission fluxes for 26 inventory source categories. Files contain one year of emissions per source category and include a time dimension variable to make the data suitable (COARDS-compliant) for atmospheric models.<br>&nbsp; &nbsp;(Dimensions: latitude x longitude x time; units: molecules CH\u00ad4 cm-2 s-1):<br><i>&nbsp; &nbsp; &nbsp;- Gridded_GHGI_Methane_v2_YYYY.nc</i><br><br>b.&nbsp;Monthly emission scaling factors for inventory source categories with strong interannual variability (see 'Data Details' below). To use these factors to calculate absolute monthly methane emission fluxes, multiply the scaling factors for each relevant source category by the corresponding emission fluxes in the annual flux files.<br>&nbsp;(Dimensions: latitude x longitude x month; units: dimensionless):&nbsp;<br>&nbsp; &nbsp; &nbsp;-&nbsp;<i>Gridded_GHGI_Methane_v2_Monthly_Scale_Factors_YYYY.nc</i><br>&nbsp;</li><li><strong>Gridded GHGI v2 Express Extension (1 file type).</strong> The v2 Express Extension includes gridded annual U.S. anthropogenic methane emissions for 2012-2020 for 27 source categories (one additional source category compared to the main v2 dataset above). This dataset is developed to be consistent with total methane emissions from the U.S. GHGI published in 2022 (<i>EPA (2022) Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2020. U.S. Environmental Protection Agency, EPA 430-R-22-003.&nbsp;</i><a href=\"https://www.epa.gov/ghgemissions/draft-inventory-us-greenhouse-gas-emissionsand-sinks-1990-2020\"><i>https://www.epa.gov/ghgemissions/draft-inventory-us-greenhouse-gas-emissionsand-sinks-1990-2020</i></a><i>)</i>.&nbsp;<br><br><i>**Note**:</i><strong>&nbsp;</strong>This dataset is <strong>not</strong> a full update to the main gridded GHGI v2 product. To quickly incorporate more recent national methane emission estimates into gridded products, national methane emissions from a more recent U.S. GHGI were spatially allocated (i.e., gridded) using the annual source-specific spatial emission patterns developed for the 2012-2018 main v2 product. Emissions for years 2019 and 2020 were allocated using 2018 spatial patterns.<br><br>This dataset includes 1 file type:<br>a.&nbsp;Annual emission files<br>&nbsp; &nbsp;(Dimensions: latitude x longitude x time; units: molecules CH\u00ad4 cm-2 s-1):<br>&nbsp; &nbsp; &nbsp;-&nbsp;<i>Express_Extension_Gridded_GHGI_Methane_v2_YYYY.nc</i></li></ol><p><i>--------------------------------------------------</i></p>",
+    "languages": [
+      {
+        "id": "eng",
+        "title": {
+          "en": "English"
+        }
+      }
+    ],
+    "publication_date": "2023-10-19",
+    "publisher": "Zenodo",
+    "related_identifiers": [
+      {
+        "identifier": "10.1021/acs.est.3c05138",
+        "relation_type": {
+          "id": "ispublishedin",
+          "title": {
+            "de": "Ist ver\u00f6ffentlicht in",
+            "en": "Is published in"
+          }
+        },
+        "resource_type": {
+          "id": "publication",
+          "title": {
+            "de": "Publikation",
+            "en": "Publication"
+          }
+        },
+        "scheme": "doi"
+      }
+    ],
+    "resource_type": {
+      "id": "dataset",
+      "title": {
+        "de": "Datensatz",
+        "en": "Dataset"
+      }
+    },
+    "rights": [
+      {
+        "description": {
+          "en": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited."
+        },
+        "icon": "cc-by-icon",
+        "id": "cc-by-4.0",
+        "props": {
+          "scheme": "spdx",
+          "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "title": {
+          "en": "Creative Commons Attribution 4.0 International"
+        }
+      }
+    ],
+    "subjects": [
+      {
+        "subject": "Methane"
+      },
+      {
+        "subject": "Emissions"
+      }
+    ],
+    "title": "Gridded EPA U.S. Anthropogenic Methane Greenhouse Gas Inventory (gridded GHGI)",
+    "version": "v1.0"
+  },
+  "parent": {
+    "access": {
+      "owned_by": {
+        "user": "86282"
+      },
+      "settings": {
+        "accept_conditions_text": null,
+        "allow_guest_requests": false,
+        "allow_user_requests": false,
+        "secret_link_expiration": 0
+      }
+    },
+    "communities": {},
+    "id": "7672123",
+    "pids": {
+      "doi": {
+        "client": "datacite",
+        "identifier": "10.5281/zenodo.7672123",
+        "provider": "datacite"
+      }
+    }
+  },
+  "pids": {
+    "doi": {
+      "client": "datacite",
+      "identifier": "10.5281/zenodo.8367082",
+      "provider": "datacite"
+    },
+    "oai": {
+      "identifier": "oai:zenodo.org:8367082",
+      "provider": "oai"
+    }
+  },
+  "revision_id": 4,
+  "stats": {
+    "all_versions": {
+      "data_volume": 19002768624.0,
+      "downloads": 4711,
+      "unique_downloads": 4069,
+      "unique_views": 3483,
+      "views": 3965
+    },
+    "this_version": {
+      "data_volume": 15672226101.0,
+      "downloads": 3899,
+      "unique_downloads": 3521,
+      "unique_views": 2895,
+      "views": 3298
+    }
+  },
+  "status": "published",
+  "swh": {},
+  "updated": "2023-10-28T18:17:33.365780+00:00",
+  "versions": {
+    "index": 2,
+    "is_latest": true
+  }
+}
