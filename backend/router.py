@@ -15,7 +15,7 @@ df = pd.read_json('your_file.json')
 with open('your_file.json', 'r') as file:
     data = json.load(file)
 
-df = pd.DataFrame(data)
+df = pd.json_normalize(data)
 
 
 
