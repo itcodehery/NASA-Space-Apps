@@ -4,3 +4,9 @@ Scripts/
 Lib
 Include
 pyvenv.cfg
+
+lib
+bin
+include 
+
+pyvenv.cfg

@@ -5,39 +5,26 @@ import time
 from pathlib import Path
 from geopy.geocoders import Nominatim
 
-# Define file paths
-BASE_DIR = Path(__file__).resolve().parent
-json_file_path = BASE_DIR / "dataProcessing" / "Data" / "outputsData.json"
-
 router = APIRouter()
 geolocator = Nominatim(user_agent="geoapi")
+
+# File path
+BASE_DIR = Path(__file__).resolve().parent
+json_file_path = BASE_DIR / "dataProcessing" / "Data" / "outputsData.json"
 
 # Load JSON data
 if json_file_path.exists():
     with open(json_file_path, 'r') as file:
         data = json.load(file)
+    df = pd.DataFrame(data)
 else:
-    data = []
+    df = pd.DataFrame()
 
-# ✅ Extract coordinates from all features
-coords = []
-for feature_collection in data:
-    for feature in feature_collection.get("features", []):
-        geometry = feature.get("geometry", {})
-        if geometry.get("type") == "Polygon":
-            polygon_coords = geometry.get("coordinates", [])
-            for poly in polygon_coords:
-                for point in poly:
-                    # point is [longitude, latitude]
-                    coords.append({
-                        "latitude": point[1],
-                        "longitude": point[0]
-                    })
+# ✅ Extract coordinates properly
+coordinates = df["features"][0][0]["geometry"]["coordinates"]  # adjust based on actual structure
+lat_long_list = [tuple(coord) for coord in coordinates]
 
-# ✅ Create DataFrame
-rows = pd.DataFrame(coords)
-
-# ✅ Function to get country name from lat/lon
+# ✅ Function to get country name
 def get_country(lat, lon):
     try:
         location = geolocator.reverse((lat, lon), language="en")
@@ -47,15 +34,18 @@ def get_country(lat, lon):
         print(f"Error: {e}")
     return "Not found"
 
-# ✅ Add country column (with rate limiting)
-countries = []
-for _, row in rows.iterrows():
-    countries.append(get_country(row["latitude"], row["longitude"]))
+# ✅ Process all coordinates
+results = []
+for lon, lat in lat_long_list:  # GeoJSON uses [longitude, latitude]
+    country = get_country(lat, lon)
+    results.append({"latitude": lat, "longitude": lon, "country": country})
+    time.sleep(1)  # Rate limiting for Nominatim
 
-rows["country"] = countries
+# ✅ Convert to DataFrame
+final_df = pd.DataFrame(results)
 
-# ✅ Group by country and count points
-grouped = rows.groupby("country").size().reset_index(name="count")
+# ✅ API Endpoint
+@router.get("/get_country")
+async def get_country_data():
+    return final_df.to_dict(orient="records")
 
-print('Rows\n\n',rows)      # Full table with lat, lon, country
-print('Grouped\n\n',grouped)   # Summary by country
