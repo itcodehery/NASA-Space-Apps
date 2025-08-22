@@ -1,32 +1,61 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 import pandas as pd
 import json
-import io
-from typing import Dict, List, Optional
+import time
 from pathlib import Path
 from geopy.geocoders import Nominatim
 
+# Define file paths
+BASE_DIR = Path(__file__).resolve().parent
+json_file_path = BASE_DIR / "dataProcessing" / "Data" / "outputsData.json"
 
 router = APIRouter()
 geolocator = Nominatim(user_agent="geoapi")
 
-# df = pd.read_json('your_file.json')
-# with open('your_file.json', 'r') as file:
-#     data = json.load(file)
+# Load JSON data
+if json_file_path.exists():
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+else:
+    data = []
 
-df = pd.DataFrame(data)
+# ✅ Extract coordinates from all features
+coords = []
+for feature_collection in data:
+    for feature in feature_collection.get("features", []):
+        geometry = feature.get("geometry", {})
+        if geometry.get("type") == "Polygon":
+            polygon_coords = geometry.get("coordinates", [])
+            for poly in polygon_coords:
+                for point in poly:
+                    # point is [longitude, latitude]
+                    coords.append({
+                        "latitude": point[1],
+                        "longitude": point[0]
+                    })
 
+# ✅ Create DataFrame
+rows = pd.DataFrame(coords)
 
+# ✅ Function to get country name from lat/lon
+def get_country(lat, lon):
+    try:
+        location = geolocator.reverse((lat, lon), language="en")
+        if location and "country" in location.raw.get("address", {}):
+            return location.raw["address"]["country"]
+    except Exception as e:
+        print(f"Error: {e}")
+    return "Not found"
 
+# ✅ Add country column (with rate limiting)
+countries = []
+for _, row in rows.iterrows():
+    countries.append(get_country(row["latitude"], row["longitude"]))
 
+rows["country"] = countries
 
+# ✅ Group by country and count points
+grouped = rows.groupby("country").size().reset_index(name="count")
 
-@router.get("/get_country", response_model=Dict[str, str])
-async def get_country(latitude: float = Query(...), longitude: float = Query(...)):
-    location = geolocator.reverse((latitude, longitude), language="en")
-    if location and "country" in location.raw.get("address", {}):
-        country = location.raw["address"]["country"]
-    else:
-        country = "Not found"
-
-    return {"latitude": str(latitude), "longitude": str(longitude), "country": country}
+print('Rows\n\n',rows)      # Full table with lat, lon, country
+print('Grouped\n\n',grouped)   # Summary by country
