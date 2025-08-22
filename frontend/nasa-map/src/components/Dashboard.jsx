@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { fetchCityStats } from "../api";
-import { FiEdit3, FiMapPin, FiAlertTriangle, FiTrendingUp, FiTrendingDown, FiUsers, FiGlobe, FiCalendar } from "react-icons/fi";
+import { fetchCityStats } from "../services/api";
+import {
+  FiEdit3,
+  FiMapPin,
+  FiAlertTriangle,
+  FiTrendingUp,
+  FiTrendingDown,
+  FiUsers,
+  FiGlobe,
+  FiCalendar,
+} from "react-icons/fi";
 
 export default function Dashboard() {
   const [cityData, setCityData] = useState([]);
@@ -70,14 +79,18 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-gray-800 border border-gray-700 p-6">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-gray-400 text-sm font-semibold">TOTAL CITIES</h3>
+              <h3 className="text-gray-400 text-sm font-semibold">
+                TOTAL CITIES
+              </h3>
               <FiGlobe className="w-5 h-5 text-gray-500" />
             </div>
             <p className="text-3xl font-bold">{cityData.length}</p>
           </div>
           <div className="bg-gray-800 border border-gray-700 p-6">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-gray-400 text-sm font-semibold">HIGH ALERTS</h3>
+              <h3 className="text-gray-400 text-sm font-semibold">
+                HIGH ALERTS
+              </h3>
               <FiAlertTriangle className="w-5 h-5 text-red-500" />
             </div>
             <p className="text-3xl font-bold text-red-500">
@@ -122,12 +135,12 @@ export default function Dashboard() {
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                <h3 className="text-xl font-semibold mb-1 flex items-center gap-2">
-                  <FiMapPin className="w-5 h-5 text-gray-400" />
-                  {city.name}
-                </h3>
-                <p className="text-gray-400 text-sm">{city.country}</p>
-              </div>
+                  <h3 className="text-xl font-semibold mb-1 flex items-center gap-2">
+                    <FiMapPin className="w-5 h-5 text-gray-400" />
+                    {city.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{city.country}</p>
+                </div>
                 <div
                   className="w-3 h-3"
                   style={{ backgroundColor: getSeverityColor(city.alertLevel) }}
@@ -232,7 +245,11 @@ export default function Dashboard() {
                         city.trend >= 0 ? "text-red-500" : "text-green-500"
                       }`}
                     >
-                      {city.trend >= 0 ? <FiTrendingUp className="w-4 h-4" /> : <FiTrendingDown className="w-4 h-4" />}
+                      {city.trend >= 0 ? (
+                        <FiTrendingUp className="w-4 h-4" />
+                      ) : (
+                        <FiTrendingDown className="w-4 h-4" />
+                      )}
                       {Math.abs(city.trend)}% vs last month
                     </span>
                   </div>
