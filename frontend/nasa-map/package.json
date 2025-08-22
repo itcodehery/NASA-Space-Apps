@@ -10,8 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@maptiler/sdk": "^3.7.0",
+    "@tailwindcss/vite": "^4.1.12",
+    "axios": "^1.11.0",
+    "leaflet": "^1.9.4",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-leaflet": "^5.0.0",
+    "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

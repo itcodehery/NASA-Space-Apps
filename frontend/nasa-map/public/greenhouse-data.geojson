@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [139.75, 35.7],
+            [139.8, 35.7],
+            [139.8, 35.65],
+            [139.75, 35.65],
+            [139.75, 35.7]
+          ]
+        ]
+      },
+      "properties": {
+        "area_name": "District A",
+        "co2_level": 150,
+        "n2o_level": 75
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [139.7, 35.68],
+            [139.75, 35.68],
+            [139.75, 35.63],
+            [139.7, 35.63],
+            [139.7, 35.68]
+          ]
+        ]
+      },
+      "properties": {
+        "area_name": "District B",
+        "co2_level": 80,
+        "n2o_level": 120
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [139.77, 35.72],
+            [139.82, 35.72],
+            [139.82, 35.68],
+            [139.77, 35.68],
+            [139.77, 35.72]
+          ]
+        ]
+      },
+      "properties": {
+        "area_name": "District C",
+        "co2_level": 45,
+        "n2o_level": 50
+      }
+    }
+  ]
+}
