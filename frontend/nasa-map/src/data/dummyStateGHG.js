@@ -22,7 +22,7 @@ export const stateGHGData = [
         CO2: 40,
         CH4: 80,
         CO: 20,
-        color: "#3182ce" // Blue for high CH4
+        color: "#999999" // Gray for high CH4
     },
     {
         name: "New York",

@@ -8,9 +8,9 @@ const MAPTILER_KEY = "get_your_own_D6rA4zTHduk6KOKTXzGB"; // Replace with your o
 const center = [ -99, 31 ]; // [lng, lat]
 
 const gasColors = {
-  CO2: "#e53e3e",
-  CH4: "#38a169",
-  CO: "#3182ce"
+  CO2: "#666666",
+  CH4: "#999999",
+  CO: "#cccccc"
 };
 
 export default function MapTiler3DView({ filters }) {

@@ -1,22 +1,18 @@
+import React, { useState } from "react";
 import MapView from "./components/MapView";
 import FilterCard from "./components/FilterCard";
 import AppBar from "./components/AppBar";
 import Map from "./components/Map";
 
 function App() {
-  // const [filters, setFilters] = useState({ CO2: true, CH4: false, CO: false });
+  const [filters, setFilters] = useState({ CO2: true, CH4: false, CO: false });
+  const [year, setYear] = useState(2020);
 
   return (
-    <div className="App relative h-screen w-screen">
+    <div className="App relative h-screen w-screen flex flex-col items-center justify-center">
       <AppBar />
-      {/* <div className="h-full w-full pt-16">
-        <MapView filters={filters} />
-      </div>
-      <div className="pointer-events-auto" style={{ zIndex: 1000, position: 'absolute', bottom: '2rem', right: '2rem' }}>
-        <FilterCard filters={filters} setFilters={setFilters} />
-      </div> */}
-
-      <Map />
+  <Map filters={filters} year={year} />
+  <FilterCard filters={filters} setFilters={setFilters} year={year} setYear={setYear} />
     </div>
   );
 }
