@@ -24,9 +24,11 @@ for dataset_name, file_path in datas.items():
 
     # filter only lines with "json"
     json_links = [link.strip() for link in links if "json" in link]
+    json = pd.read_json(json_links[0])
+
 
     # create a DataFrame "table"
-    df = pd.DataFrame(json_links, columns=["link"])
+    df = pd.DataFrame(json, columns=["link"])
 
     # save this table in our dictionary
     tables[dataset_name] = df
