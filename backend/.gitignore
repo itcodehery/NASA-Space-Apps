@@ -1,4 +1,6 @@
 __pycache__/
 .env
 Scripts/
-venv
+Lib
+Include
+pyvenv.cfg
