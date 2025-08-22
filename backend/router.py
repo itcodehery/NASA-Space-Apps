@@ -14,7 +14,11 @@ geolocator = Nominatim(user_agent="geoapi")
 # with open('your_file.json', 'r') as file:
 #     data = json.load(file)
 
-# df = pd.DataFrame(data)
+df = pd.DataFrame(data)
+
+
+
+
 
 
 @router.get("/get_country", response_model=Dict[str, str])
