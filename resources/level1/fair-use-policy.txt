@@ -1,0 +1,9 @@
+FAIR USE POLICY:
+
+We reserve the right to make corrections to the data based on scientific 
+grounds, e.g., recalibration of standard gases or discovery of operational 
+issues not known at the time of the release.  If the data are obtained for 
+potential use in a publication or presentation, kindly inform Penn State 
+personnel (co2data@meteo.psu.edu) of the nature of this work.
+
+Thanks!
