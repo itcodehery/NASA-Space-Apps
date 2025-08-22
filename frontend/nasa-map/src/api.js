@@ -6,35 +6,44 @@ const api = axios.create({
   // You can add other default settings here
 });
 
-// Real function to fetch state-level emission data
+// Deprecated - Use fetchMethanePlumes instead
 export async function fetchStateEmissions(year = 2022) {
-  // TODO: Replace with your actual API endpoint
-  try {
-    const response = await fetch(`/api/state-emissions?year=${year}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch state emissions data");
-    }
-    return response.json();
-  } catch (error) {
-    console.warn(
-      "API endpoint not available, returning empty data. Update API URLs in api.js"
-    );
-    return [];
-  }
+  console.warn(
+    "fetchStateEmissions is deprecated. Use fetchMethanePlumes instead."
+  );
+  return fetchMethanePlumes(year);
 }
 
 // Real API functions for methane plume data
 export async function fetchMethanePlumes(year = 2022) {
-  // TODO: Replace with your actual API endpoint
   try {
-    const response = await fetch(`/api/methane-plumes?year=${year}`);
+    const response = await fetch(
+      `http://localhost:8000/filter-data?year=${year}`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch methane plumes data");
     }
-    return response.json();
+    const data = await response.json();
+
+    // Convert the facility data to GeoJSON format
+    if (Array.isArray(data)) {
+      return {
+        type: "FeatureCollection",
+        features: data.map((facility) => ({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [facility.longitude, facility.latitude],
+          },
+          properties: facility,
+        })),
+      };
+    }
+
+    return data;
   } catch (error) {
     console.warn(
-      "API endpoint not available, returning empty data. Update API URLs in api.js"
+      "API endpoint not available, returning empty data. Make sure the backend is running on localhost:8000"
     );
     return {
       type: "FeatureCollection",
@@ -43,21 +52,10 @@ export async function fetchMethanePlumes(year = 2022) {
   }
 }
 
-// Real function to fetch city statistics from API
+// Deprecated - Use fetchMethanePlumes instead
 export async function fetchCityStats(year = 2022) {
-  // TODO: Replace with your actual API endpoint
-  try {
-    const response = await fetch(`/api/city-stats?year=${year}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch city statistics");
-    }
-    return response.json();
-  } catch (error) {
-    console.warn(
-      "API endpoint not available, returning empty data. Update API URLs in api.js"
-    );
-    return [];
-  }
+  console.warn("fetchCityStats is deprecated. Use fetchMethanePlumes instead.");
+  return fetchMethanePlumes(year);
 }
 
 export default api;

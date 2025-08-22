@@ -1,10 +1,25 @@
-import { FiFilter, FiCalendar } from 'react-icons/fi';
+import { FiFilter, FiCalendar } from "react-icons/fi";
 
 export default function FilterCard({ filters, setFilters, year, setYear }) {
   const gases = [
-    { key: "CO2", label: "CO₂", color: "#ef4444", hoverColor: "hover:bg-red-500/20" },
-    { key: "CH4", label: "CH₄", color: "#f59e0b", hoverColor: "hover:bg-amber-500/20" },
-    { key: "CO", label: "CO", color: "#6b7280", hoverColor: "hover:bg-gray-500/20" },
+    {
+      key: "CO2",
+      label: "CO₂",
+      color: "#ef4444",
+      hoverColor: "hover:bg-red-500/20",
+    },
+    {
+      key: "CH4",
+      label: "CH₄",
+      color: "#f59e0b",
+      hoverColor: "hover:bg-amber-500/20",
+    },
+    {
+      key: "CO",
+      label: "CO",
+      color: "#6b7280",
+      hoverColor: "hover:bg-gray-500/20",
+    },
   ];
 
   // Find the currently selected gas
@@ -38,7 +53,7 @@ export default function FilterCard({ filters, setFilters, year, setYear }) {
                 onClick={() => handleGasChange(gas.key)}
                 className={`px-4 py-2 text-sm font-medium transition-all duration-200 border ${
                   selectedGas === gas.key
-                    ? 'bg-gray-700 border-gray-600 text-white shadow-lg'
+                    ? "bg-gray-700 border-gray-600 text-white shadow-lg"
                     : `bg-transparent border-gray-600 text-gray-400 ${gas.hoverColor} hover:border-gray-500 hover:text-gray-200`
                 }`}
               >
@@ -66,14 +81,16 @@ export default function FilterCard({ filters, setFilters, year, setYear }) {
           <div className="flex items-center gap-3 bg-gray-900/50 px-4 py-2">
             <input
               type="range"
-              min={2015}
-              max={2020}
+              min={2019}
+              max={2023}
               step={1}
               value={year}
               onChange={(e) => setYear(Number(e.target.value))}
               className="w-32 h-1 bg-gray-600 appearance-none cursor-pointer slider"
               style={{
-                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((year - 2015) / 5) * 100}%, #4b5563 ${((year - 2015) / 5) * 100}%, #4b5563 100%)`
+                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${
+                  ((year - 2015) / 5) * 100
+                }%, #4b5563 ${((year - 2015) / 5) * 100}%, #4b5563 100%)`,
               }}
             />
             <span className="text-base font-bold text-white bg-gray-700 px-3 py-1 min-w-[3rem] text-center">
