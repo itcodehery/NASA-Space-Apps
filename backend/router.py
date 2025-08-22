@@ -1,7 +1,7 @@
 #from fastapi import APIRouter , Query
 import pandas as pd
-from dataprocessing.Data.data import df
-router = APIRouter()
+from dataProcessing.Data import df
+#router = APIRouter()
 
 
 print(df[2019])
