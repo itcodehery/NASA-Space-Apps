@@ -57,23 +57,22 @@ X_processed = np.asarray(X_processed, dtype=np.float32)  # ✅ ensures dense flo
 # ---------------------------------------------------------
 def tf_kmeans(X, k=5, epochs=50):
     """
-    Simple KMeans implementation in TensorFlow.
+    Simple KMeans implementation in TensorFlow (memory-optimized).
     X: (num_samples, num_features)
     """
     n_samples, n_features = X.shape
-
-    # Convert to tensor
     X_tf = tf.constant(X, dtype=tf.float32)
 
-    # Randomly initialize cluster centers from samples
+    # Randomly initialize cluster centers
     idx = np.random.choice(n_samples, k, replace=False)
     centroids = tf.Variable(X_tf.numpy()[idx], dtype=tf.float32)
 
     for epoch in range(epochs):
-        # Compute distances (num_samples x k)
-        expanded_X = tf.expand_dims(X_tf, 1)              # (n, 1, f)
-        expanded_centroids = tf.expand_dims(centroids, 0) # (1, k, f)
-        distances = tf.reduce_sum(tf.square(expanded_X - expanded_centroids), axis=2)
+        # Efficient distance computation using (x - c)^2 = x^2 + c^2 - 2xc
+        x2 = tf.reduce_sum(tf.square(X_tf), axis=1, keepdims=True)      # (n, 1)
+        c2 = tf.reduce_sum(tf.square(centroids), axis=1, keepdims=True) # (k, 1)
+        xc = tf.matmul(X_tf, centroids, transpose_b=True)               # (n, k)
+        distances = x2 + tf.transpose(c2) - 2 * xc                      # (n, k)
 
         # Assign clusters
         cluster_assignments = tf.argmin(distances, axis=1)
@@ -86,8 +85,7 @@ def tf_kmeans(X, k=5, epochs=50):
             if tf.shape(cluster_points)[0] > 0:
                 new_centroids.append(tf.reduce_mean(cluster_points, axis=0))
             else:
-                new_centroids.append(centroids[i])  # keep old centroid if cluster is empty
-
+                new_centroids.append(centroids[i])  # keep old if empty
         centroids.assign(tf.stack(new_centroids))
 
         if epoch % 10 == 0:
