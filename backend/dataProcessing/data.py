@@ -68,10 +68,11 @@ DF2021_processed = data_processing_function(DF2021)
 DF2022_processed = data_processing_function(DF2022)
 DF2023_processed = data_processing_function(DF2023)
 
-__all__ = [
-    "DF2019_processed",
-    "DF2020_processed",
-    "DF2021_processed",
-    "DF2022_processed",
-    "DF2023_processed",
-]
+df = {
+
+    2019:DF2019_processed,
+    2020:DF2020_processed,
+    2021:DF2021_processed,
+    2022:DF2022_processed,
+    2023:DF2023_processed,
+}
