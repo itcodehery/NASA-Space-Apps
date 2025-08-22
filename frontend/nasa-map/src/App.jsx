@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import MapView from "./components/MapView";
+import FilterCard from "./components/FilterCard";
+import AppBar from "./components/AppBar";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [filters, setFilters] = useState({ CO2: true, CH4: false, CO: false });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="relative h-screen w-screen">
+      <AppBar />
+      <div className="h-full w-full pt-16">
+        <MapView filters={filters} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="pointer-events-auto" style={{ zIndex: 1000, position: 'absolute', bottom: '2rem', right: '2rem' }}>
+        <FilterCard filters={filters} setFilters={setFilters} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

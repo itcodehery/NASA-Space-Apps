@@ -1,0 +1,49 @@
+{
+  "name": "geo-coordinates-parser",
+  "version": "1.7.4",
+  "description": "A Javascript function for reading a variety of coordinate formats and converting to decimal numbers. Builds on other efforts by returning the verbatim coordinates and the decimal coordinates all in one object.",
+  "type": "module",
+  "main": "./dist/cjs/merge.js",
+  "types": "./dist/cjs/merge.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/merge.js",
+      "require": "./dist/cjs/merge.js"
+    }
+  },
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "rd /s /q dist && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && fixup.bat",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianengelbrecht/geo-coordinates-parser.git"
+  },
+  "keywords": [
+    "geographic",
+    "coordinates",
+    "conversion",
+    "converter",
+    "parse",
+    "decimal degrees",
+    "degrees minutes seconds",
+    "degrees minutes",
+    "Darwin Core",
+    "DMS",
+    "DM",
+    "DD",
+    "DDD° MM' SS.S\"",
+    "DDD° MM.MMM'",
+    "DDD.DDDDD°",
+    "DD MM SS",
+    "DD MM.MMM",
+    "DD.DDDDD"
+  ],
+  "author": "Ian Engelbrecht",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ianengelbrecht/geo-coordinates-parser/issues"
+  },
+  "homepage": "https://github.com/ianengelbrecht/geo-coordinates-parser#readme"
+}
