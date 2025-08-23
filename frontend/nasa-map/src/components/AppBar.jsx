@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { FiGlobe, FiBarChart2, FiInfo } from "react-icons/fi";
 import AboutDialog from "./AboutDialog";
 
-export default function AppBar() {
+export default function AppBar({ currentView, setCurrentView }) {
   const [showAbout, setShowAbout] = useState(false);
 
   const handleAboutClick = (e) => {
     e.preventDefault();
     setShowAbout(true);
+  };
+
+  const handleViewChange = (view) => {
+    setCurrentView(view);
   };
 
   const handleCloseAbout = () => {
@@ -22,28 +27,55 @@ export default function AppBar() {
             className="text-white text-3xl font-extrabold tracking-tight"
             style={{ fontFamily: "Monoir, sans-serif" }}
           >
-            MAPXPLORE
+            Canopy
           </span>
         </div>
         <nav className="flex gap-10">
           <a
             href="#"
-            className="text-gray-300 hover:text-white font-semibold text-lg transition"
+            onClick={(e) => {
+              e.preventDefault();
+              handleViewChange("dashboard");
+            }}
+            className={`font-semibold text-lg transition cursor-pointer ${
+              currentView === "dashboard"
+                ? "text-white"
+                : "text-gray-300 hover:text-white"
+            }`}
           >
-            Home
+            <FiBarChart2 className="w-4 h-4 inline mr-1" />Dashboard
+          </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handleViewChange("map");
+            }}
+            className={`font-semibold text-lg transition cursor-pointer ${
+              currentView === "map"
+                ? "text-white"
+                : "text-gray-300 hover:text-white"
+            }`}
+          >
+            <FiGlobe className="w-4 h-4 inline mr-1" />Map
           </a>
           <a
             href="#"
             onClick={handleAboutClick}
             className="text-gray-300 hover:text-white font-semibold text-lg transition cursor-pointer"
           >
-            About
+            <FiInfo className="w-4 h-4 inline mr-1" />About
           </a>
         </nav>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-gray-400 font-medium bg-gray-900 px-3 py-1">
-            NASA Space Apps
-          </span>
+          <a
+            href="https://www.spaceappschallenge.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-gray-400 font-medium bg-gray-900 px-3 py-1 border border-transparent hover:border-white cursor-pointer transition-all duration-500 rounded-none"
+          >
+            <FiGlobe className="w-4 h-4 inline mr-2" />NASA Space Apps
+          </a>
         </div>
       </header>
       <AboutDialog isOpen={showAbout} onClose={handleCloseAbout} />
