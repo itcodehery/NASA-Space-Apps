@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install frontend dependencies
         run: |
           cd frontend
           npm install
@@ -27,8 +27,13 @@ jobs:
           cd frontend
           npm run build
 
-      - name: Copy build to backend
+      - name: Copy frontend build to backend
         run: |
-          # adjust paths if different
-          rm -rf backend/public/*  
+          # Ensure target folder exists
+          mkdir -p backend/public
+          
+          # Clear old files
+          rm -rf backend/public/*
+          
+          # Copy new build
           cp -r frontend/dist/* backend/public/
