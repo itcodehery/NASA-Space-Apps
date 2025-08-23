@@ -5,7 +5,13 @@ import Map from "./components/Map";
 import Dashboard from "./components/Dashboard";
 
 function App() {
-  const [filters, setFilters] = useState({ CO2: true, CH4: false, CO: false });
+  const [filters, setFilters] = useState({
+    CO2: true,
+    CH4: false,
+    CO: false,
+    TOTAL: false,
+  });
+
   const [year, setYear] = useState(2020);
   const [selectedState, setSelectedState] = useState(null);
   const [currentView, setCurrentView] = useState("map"); // 'map' or 'dashboard'

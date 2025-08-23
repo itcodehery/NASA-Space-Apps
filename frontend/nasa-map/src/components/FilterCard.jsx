@@ -27,6 +27,12 @@ export default function FilterCard({
       color: "#6b7280",
       hoverColor: "hover:bg-gray-500/20",
     },
+    {
+      key: "TOTAL", // FIX: Changed "Total" to "TOTAL" to match state
+      label: "Total GHG",
+      color: "#a855f7", // FIX: violet-500 (to match map)
+      hoverColor: "hover:bg-violet-500/20",
+    },
   ];
 
   const states = [
