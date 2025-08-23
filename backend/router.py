@@ -1,6 +1,4 @@
 from fastapi import APIRouter, Query, FastAPI, HTTPException
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 import pandas as pd
 import sys, os
 from ml.model.model_handler import predict_gas
@@ -15,8 +13,7 @@ from dataProcessing.data import (
     total_info,
 )  # df should be a dict: {2019: DF2019_processed, ...}
 
-# Create FastAPI app
-app = FastAPI()
+
 
 # Router for API endpoints
 router = APIRouter()
@@ -79,22 +76,11 @@ async def get_predict(
     except Exception as e:
         return {"error": str(e)}
 
-# --- Mount API router ---
-app.include_router(router, prefix="/api")
+
 
 # --- Serve Frontend (after APIs) ---
 # Serve static assets (JS, CSS, images, etc.)
-app.mount("/static", StaticFiles(directory="backend/public/assets"), name="static")
 
 # Serve index.html for root
-@app.get("/")
-async def serve_frontend_root():
-    return FileResponse("backend/public/index.html")
 
-# Catch-all fallback for React Router / Vite SPA
-@app.get("/{full_path:path}")
-async def serve_frontend(full_path: str):
-    file_path = f"backend/public/{full_path}"
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-    return FileResponse("backend/public/index.html")
+
