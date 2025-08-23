@@ -9,15 +9,13 @@ file_path = os.path.join(BASE_DIR, "Data", "flight.xls")
 
 sheet_dict = pd.read_excel(file_path, sheet_name=None)
 
-DF2019 = sheet_dict["2019"]
+DF2019 = sheet_dict[-4]
 DF2020 = sheet_dict["2020"]
 DF2021 = sheet_dict["2021"]
 DF2022 = sheet_dict["2022"]
 DF2023 = sheet_dict["2023"]
 
-
-import pandas as pd
-
+print(DF2019)
 
 def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
     df = data.copy()
@@ -59,8 +57,6 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-
-print(DF2019)
 
 DF2019_processed = data_processing_function(DF2019)
 DF2020_processed = data_processing_function(DF2020)
