@@ -15,7 +15,7 @@ export default function PredictDialog({ isOpen, onClose }) {
     longitude: "",
     city_name: "",
     state: "",
-    reporting_year: new Date().getFullYear(),
+    reporting_year: 2023,
     gas_type: "CO2",
   });
   const [prediction, setPrediction] = useState(null);
@@ -61,6 +61,9 @@ export default function PredictDialog({ isOpen, onClose }) {
           ? parseFloat(value) || value
           : value,
     }));
+    // Reset prediction and error when values change
+    setPrediction(null);
+    setError(null);
   };
 
   const handleCityChange = (e) => {
@@ -87,6 +90,9 @@ export default function PredictDialog({ isOpen, onClose }) {
         longitude: "",
       }));
     }
+    // Reset prediction and error when city changes
+    setPrediction(null);
+    setError(null);
   };
 
   const randomizeCity = () => {
@@ -99,6 +105,9 @@ export default function PredictDialog({ isOpen, onClose }) {
       latitude: randomCity.lat,
       longitude: randomCity.lng,
     }));
+    // Reset prediction and error when randomizing city
+    setPrediction(null);
+    setError(null);
   };
 
   const handleSubmit = async (e) => {
@@ -108,22 +117,18 @@ export default function PredictDialog({ isOpen, onClose }) {
     setPrediction(null);
 
     try {
-      const response = await fetch("http://localhost:8000/api/predict", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          gas_type: formData.gas_type.toLowerCase(),
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
+      // Import the predictEmission function from api.js
+      const { predictEmission } = await import('../services/api.js');
+      
+      const data = await predictEmission(
+        formData.latitude,
+        formData.longitude,
+        formData.city_name,
+        formData.state,
+        formData.reporting_year,
+        formData.gas_type
+      );
+      
       setPrediction(data);
     } catch (err) {
       setError(err.message || "Failed to fetch prediction");
@@ -291,7 +296,7 @@ export default function PredictDialog({ isOpen, onClose }) {
                 <input
                   type="number"
                   name="reporting_year"
-                  min="2020"
+                  min="1990"
                   max="2030"
                   required
                   value={formData.reporting_year}
@@ -358,24 +363,21 @@ export default function PredictDialog({ isOpen, onClose }) {
                 <FiTrendingUp className="w-4 h-4 mt-1 flex-shrink-0 text-green-400" />
                 <div>
                   <p className="text-green-300 font-medium">
-                    Prediction Result
+                    {formData.reporting_year >= 2024 ? "Prediction Result" : "Data Result"}
                   </p>
                   <p className="text-green-400 text-sm">
-                    Predicted{" "}
+                    {formData.reporting_year >= 2024 ? "Predicted" : "Recorded"}{" "}
                     {gasTypes.find((g) => g.value === formData.gas_type)?.label}{" "}
                     emissions:
                     <span className="text-green-300 font-bold ml-1">
-                      {prediction.predicted_emission?.toLocaleString() ||
-                        prediction.toLocaleString()}
-                      {
-                        gasTypes.find((g) => g.value === formData.gas_type)
-                          ?.unit
-                      }
+                      {prediction.predicted_ghg_quantity?.toLocaleString()}
+                      {" metric tons CO2e"}
                     </span>
                   </p>
                   <p className="text-gray-400 text-xs mt-1">
-                    Based on facility data for {formData.city_name},{" "}
-                    {formData.state} in {formData.reporting_year}
+                    {formData.reporting_year >= 2024 
+                      ? `Predicted emissions for ${formData.city_name}, ${formData.state} in ${formData.reporting_year}`
+                      : `Actual emissions data for ${formData.city_name}, ${formData.state} in ${formData.reporting_year} based on existing records`}
                   </p>
                 </div>
               </div>

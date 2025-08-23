@@ -55,7 +55,7 @@ async def get_predict(
     longitude: float = Query(..., ge=-180, le=180),
     city_name: str = Query(..., min_length=1),
     state: str = Query(..., min_length=1),
-    reporting_year: int = Query(..., ge=1990, le=2023),
+    reporting_year: int = Query(..., ge=1990, le=2030),
     gas_type: str = Query(..., regex="^(co2|ch4|n2o)$")  # regex instead of pattern for FastAPI
 ):
     # ✅ Create a DataFrame from the input parameters
@@ -71,7 +71,7 @@ async def get_predict(
     # ✅ Call the prediction function
     try:
         prediction = predict_gas(input_data, gas_type)
-        return {"predicted_ghg_quantity_(metric_tons_co2e)": float(prediction[0][0])}
+        return {"predicted_ghg_quantity": float(prediction[0][0])}
     except Exception as e:
         return {"error": str(e)}
 

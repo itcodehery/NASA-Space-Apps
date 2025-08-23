@@ -239,4 +239,32 @@ export async function fetchCityStats() {
   });
 }
 
+// Predict emissions using the new FastAPI endpoint
+export async function predictEmission(
+  latitude,
+  longitude,
+  city_name,
+  state,
+  reporting_year,
+  gas_type
+) {
+  try {
+    const response = await api.get("/get_predict", {
+      params: {
+        latitude,
+        longitude,
+        city_name,
+        state,
+        reporting_year,
+        gas_type: gas_type.toLowerCase(),
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.error || "Failed to fetch prediction"
+    );
+  }
+}
+
 export default api;
