@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { FiGlobe, FiBarChart2, FiInfo } from "react-icons/fi";
 import AboutDialog from "./AboutDialog";
+import PredictDialog from "./PredictDialog";
 
 export default function AppBar({ currentView, setCurrentView }) {
   const [showAbout, setShowAbout] = useState(false);
+  const [showPredict, setShowPredict] = useState(false);
 
   const handleAboutClick = (e) => {
     e.preventDefault();
     setShowAbout(true);
+  };
+
+  const handlePredictClick = (e) => {
+    e.preventDefault();
+    setShowPredict(true);
   };
 
   const handleViewChange = (view) => {
@@ -16,6 +23,10 @@ export default function AppBar({ currentView, setCurrentView }) {
 
   const handleCloseAbout = () => {
     setShowAbout(false);
+  };
+
+  const handleClosePredict = () => {
+    setShowPredict(false);
   };
 
   return (
@@ -43,7 +54,8 @@ export default function AppBar({ currentView, setCurrentView }) {
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <FiBarChart2 className="w-4 h-4 inline mr-1" />Dashboard
+            <FiBarChart2 className="w-4 h-4 inline mr-1" />
+            Dashboard
           </a>
           <a
             href="#"
@@ -57,28 +69,30 @@ export default function AppBar({ currentView, setCurrentView }) {
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <FiGlobe className="w-4 h-4 inline mr-1" />Map
+            <FiGlobe className="w-4 h-4 inline mr-1" />
+            Map
           </a>
           <a
             href="#"
             onClick={handleAboutClick}
             className="text-gray-300 hover:text-white font-semibold text-lg transition cursor-pointer"
           >
-            <FiInfo className="w-4 h-4 inline mr-1" />About
+            <FiInfo className="w-4 h-4 inline mr-1" />
+            About
           </a>
         </nav>
         <div className="flex items-center gap-2">
-          <a
-            href="https://www.spaceappschallenge.org/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handlePredictClick}
             className="text-xs text-gray-400 font-medium bg-gray-900 px-3 py-1 border border-transparent hover:border-white cursor-pointer transition-all duration-500 rounded-none"
           >
-            <FiGlobe className="w-4 h-4 inline mr-2" />NASA Space Apps
-          </a>
+            <FiBarChart2 className="w-4 h-4 inline mr-2" />
+            Predict
+          </button>
         </div>
       </header>
       <AboutDialog isOpen={showAbout} onClose={handleCloseAbout} />
+      <PredictDialog isOpen={showPredict} onClose={handleClosePredict} />
     </>
   );
 }

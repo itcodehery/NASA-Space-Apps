@@ -155,7 +155,7 @@ export default function FilterCard({
               onChange={(e) => setYear(Number(e.target.value))}
               className="w-32 h-1 bg-gray-600 appearance-none cursor-pointer slider"
               style={{
-                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${
+                background: `linear-gradient(to right,rgb(220, 220, 220) 0%,rgb(116, 116, 116) ${
                   ((year - 2015) / 5) * 100
                 }%, #4b5563 ${((year - 2015) / 5) * 100}%, #4b5563 100%)`,
               }}
