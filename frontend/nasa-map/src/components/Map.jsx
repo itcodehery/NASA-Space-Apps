@@ -171,7 +171,7 @@ export default function Map({ filters, year, selectedState }) {
       {/* ... */}
 
       {/* STEP 3: CLEANED UP INFO BOX (removed duplicate) */}
-      <div className="absolute top-4 left-4 bg-gray-900/95 border border-gray-700 p-4 rounded-md z-10">
+      <div className="absolute top-4 left-4 bg-gray-900/95 border border-gray-700 p-4 z-10">
         <h3 className="text-white font-semibold mb-2 flex items-center gap-2">
           <FiLayers className="w-4 h-4" />
           Emissions Map
