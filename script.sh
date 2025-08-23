@@ -6,8 +6,8 @@ echo "🚀 Starting deployment..."
 # --- Setup backend Python environment ---
 echo "🐍 Setting up backend..."
 cd backend
-python -m venv venv
-source venv/bin/activate
+# python -m venv venv
+# source venv/bin/activate
 pip install -r requirements.txt
 cd ..
 
