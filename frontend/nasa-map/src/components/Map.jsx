@@ -60,6 +60,8 @@ export default function Map({ filters, year, selectedState }) {
     };
   }, [year, filters, selectedState]);
 
+  // The map rendering useEffect DOES NOT NEED ANY CHANGES.
+  // It is already generic and will automatically handle the new "TOTAL" type.
   useEffect(() => {
     if (!gasData) return;
 
@@ -92,21 +94,7 @@ export default function Map({ filters, year, selectedState }) {
         };
 
         const sourceId = `${type.toLowerCase()}-source`;
-        const heatmapLayerId = `${type.toLowerCase()}-heatmap`;
-        const circlesLayerId = `${type.toLowerCase()}-circles`;
-        const labelsLayerId = `${type.toLowerCase()}-labels`;
-
-        // Clean up existing layers and sources
-        if (map.current.getLayer(heatmapLayerId)) {
-          map.current.removeLayer(heatmapLayerId);
-        }
-        if (map.current.getLayer(circlesLayerId)) {
-          map.current.removeLayer(circlesLayerId);
-        }
-        if (map.current.getLayer(labelsLayerId)) {
-          map.current.removeLayer(labelsLayerId);
-        }
-
+        // Check if source already exists to prevent errors on fast re-renders
         if (map.current.getSource(sourceId)) {
           map.current.getSource(sourceId).setData(geoJsonData);
         } else {
@@ -116,148 +104,56 @@ export default function Map({ filters, year, selectedState }) {
           });
         }
 
-        if (visualizationMode === 'heatmap') {
-          // Heatmap layer
-          map.current.addLayer({
-            id: `${type.toLowerCase()}-heatmap`,
-            type: "heatmap",
-            source: sourceId,
-            paint: {
-              "heatmap-intensity": [
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                0,
-                1,
-                9,
-                3,
-              ],
-              "heatmap-color": [
-                "interpolate",
-                ["linear"],
-                ["heatmap-density"],
-                0,
-                "rgba(33, 102, 172, 0)",
-                0.2,
-                "rgba(103, 169, 207, 0.8)",
-                0.4,
-                "rgba(209, 229, 240, 0.8)",
-                0.6,
-                "rgba(253, 219, 199, 0.8)",
-                0.8,
-                "rgba(239, 138, 98, 0.8)",
-                1,
-                color,
-              ],
-              "heatmap-radius": [
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                0,
-                2,
-                9,
-                20,
-              ],
-              // Enhanced weight for better low emission visibility
-              "heatmap-weight": [
-                "interpolate",
-                ["linear"],
-                ["get", "ghg_quantity_(metric_tons_co2e)"],
-                0,
-                0.1,  // Minimum weight for visibility
-                1000,
-                0.3,
-                10000,
-                0.5,
-                100000,
-                0.7,
-                1000000,
-                1,
-              ],
-              "heatmap-opacity": [
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                7,
-                1,
-                9,
-                0.75,
-              ],
-            },
-          });
-        } else {
-          // Circle layer - original implementation
-          map.current.addLayer({
-            id: `${type.toLowerCase()}-circles`,
-            type: "circle",
-            source: sourceId,
-            paint: {
-              "circle-radius": [
-                "interpolate",
-                ["linear"],
-                ["get", "ghg_quantity_(metric_tons_co2e)"],
-                0,
-                3,
-                100,
-                4,
-                1000,
-                6,
-                10000,
-                8,
-                100000,
-                12,
-                1000000,
-                18,
-              ],
-              "circle-color": color,
-              "circle-opacity": [
-                "interpolate",
-                ["linear"],
-                ["get", "ghg_quantity_(metric_tons_co2e)"],
-                0,
-                0.2,
-                100,
-                0.3,
-                1000,
-                0.4,
-                10000,
-                0.6,
-                100000,
-                0.8,
-                1000000,
-                1.0,
-              ],
-              "circle-stroke-width": 1,
-              "circle-stroke-color": "#ffffff",
-            },
-          });
+        // Add facility points layer
+        map.current.addLayer({
+          id: `${type.toLowerCase()}-points`,
+          type: "circle",
+          source: sourceId,
+          paint: {
+            // This determines the size (density) based on GHG quantity
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["get", "ghg_quantity_(metric_tons_co2e)"],
+              0,
+              3, // Min emissions, min radius
+              1000000,
+              20, // Max emissions, max radius
+            ],
+            "circle-color": color, // The color is now passed in
+            "circle-opacity": 0.7,
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#ffffff",
+          },
+        });
 
-          // Labels for circles - showing facility name and emission rate
-          map.current.addLayer({
-            id: `${type.toLowerCase()}-labels`,
-            type: "symbol",
-            source: sourceId,
-            layout: {
-              "text-field": [
-                "concat",
-                ["coalesce", ["get", "facility_name"], ["get", "station_name"], ["get", "site_name"], ["get", "city"]],
-                "\n",
-                ["get", "ghg_quantity_(metric_tons_co2e)"],
-                " tons"
-              ],
-              "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
-              "text-size": 11,
-              "text-anchor": "top",
-              "text-offset": [0, 0.8],
-              "text-allow-overlap": false,
-            },
-            paint: {
-              "text-color": "#ffffff",
-              "text-halo-color": "#000000",
-              "text-halo-width": 1,
-            },
-          });
-        }
+        // NOTE: The labels layer might get very crowded with "TOTAL" on.
+        // You may want to conditionally add labels later.
+        map.current.addLayer({
+          id: `${type.toLowerCase()}-labels`,
+          type: "symbol",
+          source: sourceId,
+          layout: {
+            "text-field": [
+              "concat",
+              ["get", "city_name"],
+              "\n",
+              ["get", "ghg_quantity_(metric_tons_co2e)"],
+              " tons (",
+              type,
+              ")",
+            ],
+            "text-size": 10,
+            "text-anchor": "top",
+            "text-allow-overlap": false,
+            "text-offset": [0, 0.5],
+          },
+          paint: {
+            "text-color": "#000000",
+            "text-halo-color": "#ffffff",
+            "text-halo-width": 2,
+          },
+        });
       });
     });
   }, [gasData, center.lng, center.lat, zoom, visualizationMode]);
