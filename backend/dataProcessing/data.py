@@ -135,7 +135,7 @@ def data_processing_function(data: pd.DataFrame) -> pd.DataFrame:
         df[col] = df[col].str.strip()
 
     return df
-u
+
 def merge_all_gases(data_dict: dict) -> dict[int, pd.DataFrame]:
     merged_by_year = {}
 

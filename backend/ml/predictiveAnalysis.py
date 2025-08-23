@@ -100,7 +100,7 @@ for gas in df["gas_type"].unique():
     rmse = np.sqrt(mse)
     r2 = r2_score(y_test, y_pred)
     
-    print(f"📊 {gas} - MSE: {mse:.2f}, RMSE: {rmse:.2f}, R²: {r2:.3f}")
+    print(f" {gas} - MSE: {mse:.2f}, RMSE: {rmse:.2f}, R²: {r2:.3f}")
     
     # Save model & preprocessor
     model.save(f"{gas}_emission_predictor.h5")
