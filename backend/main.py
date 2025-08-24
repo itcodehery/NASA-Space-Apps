@@ -1,15 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-<<<<<<< HEAD
 from router import router
 from fastapi.responses import FileResponse
-=======
 import sys, os, asyncio
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
->>>>>>> 07e7eb6 (Fixed build and deployments scripts and renders the website from the backend)
 
 app = FastAPI()
 
