@@ -1,2 +1,38 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Editor/IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+lib
+lib64
+# Database
+db.sqlite3
+
+# Environment variables
+.env
+
+# Build artifacts
+build/
+dist/
+public/
+include/
+bin/
+# Test/coverage reports
+htmlcov/
+.tox/
+.coverage
+pyvenv.cfg
