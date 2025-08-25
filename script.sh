@@ -24,4 +24,4 @@ mkdir -p backend/public
 rm -rf backend/public/*
 cp -r frontend/nasa-map/dist/* backend/public/
 
-echo "✅ Deployment complete!"
+echo "✅ Build complete!"
