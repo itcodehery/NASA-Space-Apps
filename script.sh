@@ -4,11 +4,10 @@ set -e  # stop on first error
 echo "🚀 Starting deployment..."
 
 # --- Setup backend Python environment ---
-echo "🐍 Setting up backend..."
+echo "🐍 Installing backend dependencies..."
 cd backend
-python -m venv .
-source bin/activate
-pip install -r requirements.txt
+pip install --upgrade pip setuptools wheel
+pip install --default-timeout=100 --retries=5 -r requirements.txt
 cd ..
 
 # --- Build nasa-map (frontend project) ---
