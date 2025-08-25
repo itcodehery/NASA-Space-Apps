@@ -1,3 +1,7 @@
+#!/bin/bash
+set -e
+
+
 echo "Starting the Server"
 cd backend
 
